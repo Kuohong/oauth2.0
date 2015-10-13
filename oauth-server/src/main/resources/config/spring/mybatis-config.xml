@@ -5,6 +5,7 @@
 
 <configuration>
     <settings>
+        <setting name="logImpl" value="LOG4J2" />
         <setting name="lazyLoadingEnabled" value="false"/>
         <setting name="useGeneratedKeys" value="true"/>
     </settings>
@@ -14,9 +15,15 @@
         <typeAlias alias="OauthClientDetails" type="cc.wdcy.domain.oauth.OauthClientDetails"/>
 
     </typeAliases>-->
-
+    <typeHandlers>
+        <!-- <typeHandler handler="org.apache.ibatis.type.EnumOrdinalTypeHandler"
+            javaType="cn.com.teacher.cistus.dt.entity.TestMenu" /> -->
+        <typeHandler
+                handler="org.power4j.oauth2.mybatis.handler.ClientStatusHandler"
+                javaType="org.power4j.oauth2.common.pojo.ClientStatus" />
+    </typeHandlers>
     <mappers>
-        <mapper resource="mapper/*.xml"/>
+       <!-- <mapper resource="mapper/*.xml"/>-->
     </mappers>
 
 </configuration>

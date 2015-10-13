@@ -51,7 +51,7 @@ public class TokenAuthorizeHandler extends AbstractAuthorizeHandler {
         } else {
             ServerAccessToken accessToken = oauthService.retrieveAccessToken(clientDetails(), oauthRequest.getScopes(), false);
 
-            if (accessToken.tokenExpired()) {
+            if (accessToken.isTokenExpired()) {
                 expiredTokenResponse(accessToken);
             } else {
                 normalTokenResponse(accessToken);

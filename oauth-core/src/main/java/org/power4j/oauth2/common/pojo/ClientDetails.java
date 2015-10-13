@@ -3,6 +3,7 @@ package org.power4j.oauth2.common.pojo;
 import org.apache.oltu.oauth2.common.message.types.GrantType;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * ClassName: org.power4j.common.pojo <br>
@@ -64,6 +65,18 @@ public class ClientDetails implements Serializable {
      * 是否是机密的
      */
     protected boolean isConfidential;
+    /**
+     * 创建时间
+     */
+    protected Date createTime;
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
 
     public String getName() {
         return name;

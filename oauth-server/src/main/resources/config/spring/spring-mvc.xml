@@ -34,7 +34,7 @@
 
 
     <!--Handle exception-->
-    <bean class="com.monkeyk.os.web.context.OAuthShiroHandlerExceptionResolver" id="handlerExceptionResolver"/>
+    <bean id="handlerExceptionResolver" class="org.power4j.oauth2.web.handler.OAuthShiroHandlerExceptionResolver" />
 
     <!--
     Shiro AOP

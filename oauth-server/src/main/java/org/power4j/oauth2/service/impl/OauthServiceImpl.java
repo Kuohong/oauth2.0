@@ -5,6 +5,7 @@ import org.apache.oltu.oauth2.common.exception.OAuthSystemException;
 import org.apache.oltu.oauth2.common.utils.OAuthUtils;
 import org.apache.shiro.SecurityUtils;
 import org.power4j.oauth2.common.pojo.ClientDetails;
+import org.power4j.oauth2.common.pojo.ClientStatus;
 import org.power4j.oauth2.common.pojo.OauthCode;
 import org.power4j.oauth2.common.pojo.token.ServerAccessToken;
 import org.power4j.oauth2.common.pojo.token.bearer.BearerAccessToken;
@@ -36,6 +37,7 @@ public class OauthServiceImpl implements OauthService {
     ClientDetailsDao clientDetailsDao;
     @Resource
     OauthCodeDao oauthCodeDao;
+    @Resource
     private AuthenticationIdGenerator authenticationIdGenerator;
 
     protected String currentUsername() {
@@ -66,7 +68,7 @@ public class OauthServiceImpl implements OauthService {
     @Override public ClientDetails loadClientDetails(String clientId) {
 
         logger.debug("Load ClientDetails by clientId: {}", clientId);
-        return clientDetailsDao.findClientDetails(clientId);
+        return clientDetailsDao.findClientDetails(clientId , ClientStatus.ENABLE);
     }
 
     /**
@@ -336,7 +338,7 @@ public class OauthServiceImpl implements OauthService {
         ServerAccessToken newAccessToken = oldToken.cloneMe();
         logger.debug("Create new AccessToken: {} from old AccessToken: {}", newAccessToken, oldToken);
 
-        ClientDetails details = clientDetailsDao.findClientDetails(clientId);
+        ClientDetails details = clientDetailsDao.findClientDetails(clientId, ClientStatus.ENABLE);
         newAccessToken.updateByClientDetails(details);
 
         final String authId = authenticationIdGenerator.generate(clientId, oldToken.username(), null);

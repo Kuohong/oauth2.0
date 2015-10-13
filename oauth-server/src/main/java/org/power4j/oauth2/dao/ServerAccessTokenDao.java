@@ -1,5 +1,6 @@
 package org.power4j.oauth2.dao;
 
+import org.apache.ibatis.annotations.Param;
 import org.power4j.oauth2.common.pojo.token.ServerAccessToken;
 
 /**
@@ -9,7 +10,7 @@ import org.power4j.oauth2.common.pojo.token.ServerAccessToken;
  * @version 2015-10-12
  */
 public interface ServerAccessTokenDao {
-    ServerAccessToken findAccessToken(String clientId, String username, String authenticationId);
+    ServerAccessToken findAccessToken(@Param("clientId")String clientId, @Param("username")String username, @Param("authenticationId")String authenticationId);
 
     int deleteAccessToken(ServerAccessToken accessToken);
 
