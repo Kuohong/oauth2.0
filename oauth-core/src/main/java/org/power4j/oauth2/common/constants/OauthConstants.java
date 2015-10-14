@@ -8,6 +8,10 @@ package org.power4j.oauth2.common.constants;
  * @version 2015-10-11
  */
 public class OauthConstants {
+    //Default value
+    public static int REFRESH_TOKEN_VALIDITY_SECONDS = 60 * 60 * 24 * 10; // default 30 days.
+    //Default value
+    public static int ACCESS_TOKEN_VALIDITY_SECONDS = 60 * 60 * 2; // default 12 hours.
     public static final String REQUEST_USERNAME = "username";
     public static final String REQUEST_PASSWORD = "password";
 

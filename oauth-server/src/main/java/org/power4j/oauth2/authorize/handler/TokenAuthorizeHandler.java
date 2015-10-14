@@ -9,7 +9,6 @@ import org.power4j.oauth2.common.pojo.ClientDetails;
 import org.power4j.oauth2.common.pojo.token.ServerAccessToken;
 import org.power4j.oauth2.validator.AbstractClientDetailsValidator;
 import org.power4j.oauth2.validator.TokenClientDetailsValidator;
-import org.power4j.oauth2.web.util.WebUtils;
 import org.power4j.oauth2.web.wapper.OAuthAuthxRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

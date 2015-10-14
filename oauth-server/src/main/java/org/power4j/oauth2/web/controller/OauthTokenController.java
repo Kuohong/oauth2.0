@@ -5,7 +5,6 @@ import org.apache.oltu.oauth2.as.response.OAuthASResponse;
 import org.apache.oltu.oauth2.common.exception.OAuthProblemException;
 import org.apache.oltu.oauth2.common.message.OAuthResponse;
 import org.power4j.oauth2.token.handler.OAuthTokenHandleDispatcher;
-import org.power4j.oauth2.web.util.WebUtils;
 import org.power4j.oauth2.web.wapper.OAuthTokenxRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

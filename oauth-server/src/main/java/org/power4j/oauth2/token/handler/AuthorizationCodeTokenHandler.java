@@ -19,7 +19,6 @@ import org.apache.oltu.oauth2.common.message.types.GrantType;
 import org.power4j.oauth2.common.pojo.token.ServerAccessToken;
 import org.power4j.oauth2.validator.AbstractClientDetailsValidator;
 import org.power4j.oauth2.validator.AuthorizationCodeClientDetailsValidator;
-import org.power4j.oauth2.web.util.WebUtils;
 import org.power4j.oauth2.web.wapper.OAuthTokenxRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

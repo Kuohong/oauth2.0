@@ -8,6 +8,7 @@ import java.io.Serializable;
  * Created by cute on 2015/10/13.
  */
 public class LoginVo implements Serializable {
+    private static final long serialVersionUID = 2583239228113727460L;
     private String username;
     private String password;
 

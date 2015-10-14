@@ -43,5 +43,6 @@
     <file url="file://$PROJECT_DIR$/oauth-server/src/main/webapp/WEB-INF" charset="GBK" />
     <file url="file://$PROJECT_DIR$/oauth-server/src/main/webapp/loading.jsp" charset="GBK" />
     <file url="file://$PROJECT_DIR$/oauth-server/src/main/webapp/resources" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/resource" charset="UTF-8" />
   </component>
 </project>

@@ -1,4 +1,4 @@
-package org.power4j.oauth2.web.util;
+package org.power4j.oauth2.common.web.util;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.oltu.oauth2.common.OAuth;

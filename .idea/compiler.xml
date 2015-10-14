@@ -31,11 +31,19 @@
         <processorPath useClasspath="true" />
         <module name="oauth-server" />
       </profile>
+      <profile default="false" name="Annotation profile for resource" enabled="true">
+        <sourceOutputDir name="target\generated-sources\annotations" />
+        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="resource" />
+      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="oauth-core" target="1.7" />
       <module name="oauth-server" target="1.7" />
       <module name="oauth2.0" target="1.7" />
+      <module name="resource" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>

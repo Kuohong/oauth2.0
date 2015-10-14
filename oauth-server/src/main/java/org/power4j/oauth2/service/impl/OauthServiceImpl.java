@@ -19,6 +19,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.Set;
 
 /**
@@ -54,7 +55,7 @@ public class OauthServiceImpl implements OauthService {
         if (includeRefreshToken) {
             accessToken.refreshToken(oAuthIssuer.refreshToken());
         }
-
+        accessToken.setCreateTime(new Date());
         this.serverAccessTokenDao.saveAccessToken(accessToken);
         logger.debug("Save AccessToken: {}", accessToken);
         return accessToken;
@@ -336,7 +337,8 @@ public class OauthServiceImpl implements OauthService {
         String clientId) throws OAuthSystemException {
         final ServerAccessToken oldToken = loadAccessTokenByRefreshToken(refreshToken, clientId);
         ServerAccessToken newAccessToken = oldToken.cloneMe();
-        logger.debug("Create new AccessToken: {} from old AccessToken: {}", newAccessToken, oldToken);
+        logger.debug("Create new AccessToken: {} from old AccessToken: {}", newAccessToken,
+            oldToken);
 
         ClientDetails details = clientDetailsDao.findClientDetails(clientId, ClientStatus.ENABLE);
         newAccessToken.updateByClientDetails(details);
@@ -346,6 +348,7 @@ public class OauthServiceImpl implements OauthService {
             .tokenId(oAuthIssuer.accessToken())
             .refreshToken(oAuthIssuer.refreshToken());
 
+        newAccessToken.setCreateTime(new Date());
         serverAccessTokenDao.deleteAccessToken(oldToken);
         logger.debug("Delete old AccessToken: {}", oldToken);
 

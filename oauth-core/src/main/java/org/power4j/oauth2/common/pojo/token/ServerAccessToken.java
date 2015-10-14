@@ -15,10 +15,7 @@ import java.util.Date;
  * @version 2015-10-10
  */
 public  class ServerAccessToken extends AccessToken {
-    //Default value
-    public static int REFRESH_TOKEN_VALIDITY_SECONDS = 60 * 60 * 24 * 30; // default 30 days.
-    //Default value
-    public static int ACCESS_TOKEN_VALIDITY_SECONDS = 60 * 60 * 12; // default 12 hours.
+
 
 
     protected static long THOUSAND = 1000l;
@@ -31,9 +28,9 @@ public  class ServerAccessToken extends AccessToken {
     protected String authenticationId;
 
 
-    protected int tokenExpiredSeconds = ACCESS_TOKEN_VALIDITY_SECONDS;
+    protected int tokenExpiredSeconds = OauthConstants.ACCESS_TOKEN_VALIDITY_SECONDS;
 
-    protected int refreshTokenExpiredSeconds = REFRESH_TOKEN_VALIDITY_SECONDS;
+    protected int refreshTokenExpiredSeconds = OauthConstants.REFRESH_TOKEN_VALIDITY_SECONDS;
     protected Date createTime;
 
 
@@ -64,13 +61,13 @@ public  class ServerAccessToken extends AccessToken {
 
     public boolean isTokenExpired() {
         final long time = this.getIssuedAt();
-        return time < System.currentTimeMillis() / THOUSAND;
+        return (System.currentTimeMillis() / THOUSAND - time) > OauthConstants.ACCESS_TOKEN_VALIDITY_SECONDS;
     }
 
 
     public boolean refreshTokenExpired() {
         final long time = this.getIssuedAt();
-        return time < System.currentTimeMillis() / THOUSAND;
+        return (System.currentTimeMillis() / THOUSAND - time) > OauthConstants.REFRESH_TOKEN_VALIDITY_SECONDS;
     }
 
 
@@ -79,7 +76,7 @@ public  class ServerAccessToken extends AccessToken {
             return -1;
         }
         final long time = this.getIssuedAt();
-        return time - System.currentTimeMillis() / THOUSAND;
+        return OauthConstants.ACCESS_TOKEN_VALIDITY_SECONDS - (System.currentTimeMillis()/THOUSAND -time);
     }
 
     public ServerAccessToken updateByClientDetails(ClientDetails clientDetails) {
@@ -230,6 +227,7 @@ public  class ServerAccessToken extends AccessToken {
 
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
+        this.issuedAt = this.getCreateTime().getTime()/OauthConstants.THOUSAND;
     }
 
     protected static ServerAccessToken validateTokenType(ServerAccessToken token,
@@ -244,6 +242,8 @@ public  class ServerAccessToken extends AccessToken {
         return this.getCreateTime().getTime()/OauthConstants.THOUSAND;
     }
 
+
+
     /**
      * Clone
      * Exclude token, refresh_token, authenticationId, expired
@@ -251,6 +251,16 @@ public  class ServerAccessToken extends AccessToken {
      * @return New ServerAccessToken instance
      */
     public  ServerAccessToken cloneMe(){
-        return new ServerAccessToken();
+        ServerAccessToken serverAccessToken = new ServerAccessToken();
+        serverAccessToken.setTokenType(tokenType);
+        serverAccessToken.setAuthenticationId(authenticationId);
+        serverAccessToken.clientId(clientId);
+        serverAccessToken.setRefreshToken(refreshToken);
+        serverAccessToken.setRefreshTokenExpiredSeconds(refreshTokenExpiredSeconds);
+        serverAccessToken.setTokenId(tokenId);
+        serverAccessToken.setTokenExpiredSeconds(tokenExpiredSeconds);
+        serverAccessToken.setUsername(username);
+        serverAccessToken.setCreateTime(createTime);
+        return serverAccessToken;
     }
 }

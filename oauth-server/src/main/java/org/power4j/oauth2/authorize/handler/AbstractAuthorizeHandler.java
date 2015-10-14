@@ -10,7 +10,6 @@ import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 import org.power4j.oauth2.common.constants.OauthConstants;
 import org.power4j.oauth2.validator.AbstractClientDetailsValidator;
-import org.power4j.oauth2.web.util.WebUtils;
 import org.power4j.oauth2.web.wapper.OAuthAuthxRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

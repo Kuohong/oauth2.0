@@ -16,7 +16,7 @@ public class AccessToken implements Serializable {
     protected String tokenType;
     protected String refreshToken;
     protected long tokenExpiredSeconds = -1;
-    private long issuedAt = -1;
+    protected long issuedAt = -1;
     private Map<String, String> parameters = new LinkedHashMap<String, String>();
 
     public AccessToken() {

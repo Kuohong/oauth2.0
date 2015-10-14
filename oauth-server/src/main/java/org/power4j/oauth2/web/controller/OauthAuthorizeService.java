@@ -7,7 +7,6 @@ import org.apache.oltu.oauth2.common.exception.OAuthSystemException;
 import org.apache.oltu.oauth2.common.message.OAuthResponse;
 import org.power4j.oauth2.authorize.handler.CodeAuthorizeHandler;
 import org.power4j.oauth2.authorize.handler.TokenAuthorizeHandler;
-import org.power4j.oauth2.web.util.WebUtils;
 import org.power4j.oauth2.web.wapper.OAuthAuthxRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
