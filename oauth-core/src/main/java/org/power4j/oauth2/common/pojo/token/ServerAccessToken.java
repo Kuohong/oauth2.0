@@ -6,13 +6,15 @@ import org.power4j.oauth2.common.constants.OauthConstants;
 import org.power4j.oauth2.common.pojo.ClientDetails;
 import org.power4j.oauth2.common.util.OauthUtils;
 
+import java.util.Date;
+
 /**
  * ClassName: com.monkeyk.os.domain.oauth <br>
  *
  * @author Kuo Hong
  * @version 2015-10-10
  */
-public abstract class ServerAccessToken extends AccessToken {
+public  class ServerAccessToken extends AccessToken {
     //Default value
     public static int REFRESH_TOKEN_VALIDITY_SECONDS = 60 * 60 * 24 * 30; // default 30 days.
     //Default value
@@ -32,9 +34,11 @@ public abstract class ServerAccessToken extends AccessToken {
     protected int tokenExpiredSeconds = ACCESS_TOKEN_VALIDITY_SECONDS;
 
     protected int refreshTokenExpiredSeconds = REFRESH_TOKEN_VALIDITY_SECONDS;
+    protected Date createTime;
 
 
     public ServerAccessToken() {
+        super();
     }
 
     protected ServerAccessToken(ClientDetails client, String tokenType, String tokenKey,
@@ -220,6 +224,14 @@ public abstract class ServerAccessToken extends AccessToken {
         this.refreshTokenExpiredSeconds = refreshTokenExpiredSeconds;
     }
 
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
     protected static ServerAccessToken validateTokenType(ServerAccessToken token,
         String expectedType) {
         if (!token.getTokenType().equals(expectedType)) {
@@ -228,7 +240,9 @@ public abstract class ServerAccessToken extends AccessToken {
         return token;
     }
 
-
+    @Override public long getIssuedAt() {
+        return this.getCreateTime().getTime()/OauthConstants.THOUSAND;
+    }
 
     /**
      * Clone
@@ -236,5 +250,7 @@ public abstract class ServerAccessToken extends AccessToken {
      *
      * @return New ServerAccessToken instance
      */
-    public abstract ServerAccessToken cloneMe();
+    public  ServerAccessToken cloneMe(){
+        return new ServerAccessToken();
+    }
 }

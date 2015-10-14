@@ -16,5 +16,5 @@ public interface ServerAccessTokenDao {
 
     int saveAccessToken(ServerAccessToken accessToken);
 
-    ServerAccessToken findAccessTokenByRefreshToken(String refreshToken, String clientId);
+    ServerAccessToken findAccessTokenByRefreshToken(@Param("refreshToken")String refreshToken, @Param("clientId")String clientId);
 }
