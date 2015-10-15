@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/oauth-core/oauth-core.iml" filepath="$PROJECT_DIR$/oauth-core/oauth-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/oauth-resource-core/oauth-resource-core.iml" filepath="$PROJECT_DIR$/oauth-resource-core/oauth-resource-core.iml" />
       <module fileurl="file://$PROJECT_DIR$/oauth-server/oauth-server.iml" filepath="$PROJECT_DIR$/oauth-server/oauth-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/oauth2.0.iml" filepath="$PROJECT_DIR$/oauth2.0.iml" />
       <module fileurl="file://$PROJECT_DIR$/resource/resource.iml" filepath="$PROJECT_DIR$/resource/resource.iml" />

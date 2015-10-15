@@ -10,7 +10,7 @@
         <!--<property name="storedCredentialsHexEncoded" value="false"/>-->
     </bean>
 
-   <bean id="jdbcRealm" class="org.power4j.oauth2.security.Power4JRealm" >
+   <bean id="jdbcRealm" class="com.power4j.oauth2.security.Power4JRealm" >
         <property name="name" value="jdbcRealm"/>
         <property name="dataSource" ref="dataSource"/>
         <property name="credentialsMatcher" ref="credentialsMatcher"/>

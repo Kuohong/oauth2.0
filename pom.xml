@@ -11,6 +11,7 @@
         <module>oauth-core</module>
         <module>oauth-server</module>
         <module>resource</module>
+        <module>oauth-resource-core</module>
     </modules>
     <packaging>pom</packaging>
     <properties>

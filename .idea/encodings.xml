@@ -3,46 +3,49 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/oauth-core" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/oauth-core/src/main/java/org/power4j/oauth2/common/pojo/AbstractDomain.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/oauth-core/src/main/java/org/power4j/oauth2/common/pojo/ClientDetails.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/oauth-core/src/main/java/org/power4j/oauth2/common/pojo/OauthCode.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/oauth-core/src/main/java/org/power4j/oauth2/common/pojo/token/AccessToken.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/oauth-core/src/main/java/org/power4j/oauth2/common/pojo/token/ServerAccessToken.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/oauth-core/src/main/java/org/power4j/oauth2/common/pojo/token/bearer/BearerAccessToken.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/oauth-core/src/main/java/org/power4j/oauth2/common/pojo/token/hawk/HawkAccessToken.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/oauth-core/src/main/java/org/power4j/oauth2/common/pojo/token/hawk/HmacAlgorithm.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/oauth-core/src/main/java/org/power4j/oauth2/common/util/Base64Exception.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/oauth-core/src/main/java/org/power4j/oauth2/common/util/Base64UrlUtility.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/oauth-core/src/main/java/org/power4j/oauth2/common/util/Base64Utility.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/oauth-core/src/main/java/org/power4j/oauth2/common/util/HmacUtils.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/oauth-core/src/main/java/com/power4j/framework/context/util/BeanProvider.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/oauth-core/src/main/java/com/power4j/oauth2/common/pojo/AbstractDomain.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/oauth-core/src/main/java/com/power4j/oauth2/common/pojo/ClientDetails.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/oauth-core/src/main/java/com/power4j/oauth2/common/pojo/OauthCode.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/oauth-core/src/main/java/com/power4j/oauth2/common/pojo/token/AccessToken.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/oauth-core/src/main/java/com/power4j/oauth2/common/pojo/token/ServerAccessToken.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/oauth-core/src/main/java/com/power4j/oauth2/common/pojo/token/bearer/BearerAccessToken.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/oauth-core/src/main/java/com/power4j/oauth2/common/pojo/token/hawk/HawkAccessToken.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/oauth-core/src/main/java/com/power4j/oauth2/common/pojo/token/hawk/HmacAlgorithm.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/oauth-core/src/main/java/com/power4j/oauth2/common/util/Base64Exception.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/oauth-core/src/main/java/com/power4j/oauth2/common/util/Base64UrlUtility.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/oauth-core/src/main/java/com/power4j/oauth2/common/util/Base64Utility.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/oauth-core/src/main/java/com/power4j/oauth2/common/util/HmacUtils.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/oauth-resource-core" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/oauth-server" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/oauth-server/src/main/java/org/power4j/oauth2/authorize/handler/AbstractAuthorizeHandler.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/oauth-server/src/main/java/org/power4j/oauth2/authorize/handler/CodeAuthorizeHandler.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/oauth-server/src/main/java/org/power4j/oauth2/authorize/handler/OAuthHandler.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/oauth-server/src/main/java/org/power4j/oauth2/authorize/handler/TokenAuthorizeHandler.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/oauth-server/src/main/java/org/power4j/oauth2/service/OauthService.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/oauth-server/src/main/java/org/power4j/oauth2/token/handler/AbstractOAuthTokenHandler.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/oauth-server/src/main/java/org/power4j/oauth2/token/handler/AuthorizationCodeTokenHandler.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/oauth-server/src/main/java/org/power4j/oauth2/token/handler/ClientCredentialsTokenHandler.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/oauth-server/src/main/java/org/power4j/oauth2/token/handler/OAuthTokenHandleDispatcher.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/oauth-server/src/main/java/org/power4j/oauth2/token/handler/OAuthTokenHandler.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/oauth-server/src/main/java/org/power4j/oauth2/token/handler/PasswordTokenHandler.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/oauth-server/src/main/java/org/power4j/oauth2/token/handler/RefreshTokenHandler.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/oauth-server/src/main/java/org/power4j/oauth2/utils/BeanProvider.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/oauth-server/src/main/java/org/power4j/oauth2/validator/AbstractClientDetailsValidator.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/oauth-server/src/main/java/org/power4j/oauth2/validator/AbstractOauthTokenValidator.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/oauth-server/src/main/java/org/power4j/oauth2/validator/AuthorizationCodeClientDetailsValidator.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/oauth-server/src/main/java/org/power4j/oauth2/validator/ClientCredentialsClientDetailsValidator.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/oauth-server/src/main/java/org/power4j/oauth2/validator/CodeClientDetailsValidator.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/oauth-server/src/main/java/org/power4j/oauth2/validator/PasswordClientDetailsValidator.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/oauth-server/src/main/java/org/power4j/oauth2/validator/RefreshTokenClientDetailsValidator.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/oauth-server/src/main/java/org/power4j/oauth2/validator/TokenClientDetailsValidator.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/oauth-server/src/main/java/org/power4j/oauth2/web/controller/OauthTokenController.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/oauth-server/src/main/java/org/power4j/oauth2/web/wapper/OAuthTokenxRequest.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/oauth-server/src/main/java/com/power4j/oauth2/authorize/handler/AbstractAuthorizeHandler.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/oauth-server/src/main/java/com/power4j/oauth2/authorize/handler/CodeAuthorizeHandler.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/oauth-server/src/main/java/com/power4j/oauth2/authorize/handler/OAuthHandler.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/oauth-server/src/main/java/com/power4j/oauth2/authorize/handler/TokenAuthorizeHandler.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/oauth-server/src/main/java/com/power4j/oauth2/rs/service/OauthService.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/oauth-server/src/main/java/com/power4j/oauth2/token/handler/AbstractOAuthTokenHandler.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/oauth-server/src/main/java/com/power4j/oauth2/token/handler/AuthorizationCodeTokenHandler.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/oauth-server/src/main/java/com/power4j/oauth2/token/handler/ClientCredentialsTokenHandler.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/oauth-server/src/main/java/com/power4j/oauth2/token/handler/OAuthTokenHandleDispatcher.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/oauth-server/src/main/java/com/power4j/oauth2/token/handler/OAuthTokenHandler.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/oauth-server/src/main/java/com/power4j/oauth2/token/handler/PasswordTokenHandler.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/oauth-server/src/main/java/com/power4j/oauth2/token/handler/RefreshTokenHandler.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/oauth-server/src/main/java/com/power4j/oauth2/utils/BeanProvider.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/oauth-server/src/main/java/com/power4j/oauth2/validator/AbstractClientDetailsValidator.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/oauth-server/src/main/java/com/power4j/oauth2/validator/AbstractOauthTokenValidator.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/oauth-server/src/main/java/com/power4j/oauth2/validator/AuthorizationCodeClientDetailsValidator.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/oauth-server/src/main/java/com/power4j/oauth2/validator/ClientCredentialsClientDetailsValidator.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/oauth-server/src/main/java/com/power4j/oauth2/validator/CodeClientDetailsValidator.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/oauth-server/src/main/java/com/power4j/oauth2/validator/PasswordClientDetailsValidator.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/oauth-server/src/main/java/com/power4j/oauth2/validator/RefreshTokenClientDetailsValidator.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/oauth-server/src/main/java/com/power4j/oauth2/validator/TokenClientDetailsValidator.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/oauth-server/src/main/java/com/power4j/oauth2/web/controller/OauthTokenController.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/oauth-server/src/main/java/com/power4j/oauth2/web/wapper/OAuthTokenxRequest.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/oauth-server/src/main/resources/config/spring/spring-propertyFileConfigurer.xml" charset="GBK" />
     <file url="file://$PROJECT_DIR$/oauth-server/src/main/webapp/WEB-INF" charset="GBK" />
     <file url="file://$PROJECT_DIR$/oauth-server/src/main/webapp/loading.jsp" charset="GBK" />
     <file url="file://$PROJECT_DIR$/oauth-server/src/main/webapp/resources" charset="GBK" />
     <file url="file://$PROJECT_DIR$/resource" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/resource/src/main/resources/META-INF/config/spring/spring-propertyFileConfigurer.xml" charset="GBK" />
   </component>
 </project>

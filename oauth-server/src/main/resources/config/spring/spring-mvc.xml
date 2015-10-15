@@ -9,7 +9,7 @@
 
     <!--annotation configuration -->
     <context:annotation-config/>
-    <context:component-scan base-package="org.power4j.oauth2.web.controller"/>
+    <context:component-scan base-package="com.power4j.oauth2.web.controller"/>
 
     <mvc:annotation-driven/>
     <mvc:default-servlet-handler/>
@@ -34,7 +34,7 @@
 
 
     <!--Handle exception-->
-    <bean id="handlerExceptionResolver" class="org.power4j.oauth2.web.handler.OAuthShiroHandlerExceptionResolver" />
+    <bean id="handlerExceptionResolver" class="com.power4j.oauth2.web.handler.OAuthShiroHandlerExceptionResolver" />
 
     <!--
     Shiro AOP

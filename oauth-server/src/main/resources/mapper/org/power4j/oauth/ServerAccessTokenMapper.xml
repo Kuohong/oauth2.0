@@ -2,9 +2,9 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="org.power4j.oauth2.dao.ServerAccessTokenDao">
+<mapper namespace="com.power4j.oauth2.dao.ServerAccessTokenDao">
 
-        <resultMap id="serverAccessToken" type="org.power4j.oauth2.common.pojo.token.ServerAccessToken">
+        <resultMap id="serverAccessToken" type="com.power4j.oauth2.common.pojo.token.ServerAccessToken">
                 <result column="token_id" property="tokenId" jdbcType="VARCHAR" />
                 <result column="token_expired_seconds" property="tokenExpiredSeconds" jdbcType="INTEGER" />
                 <result column="authentication_id" property="authenticationId" jdbcType="VARCHAR" />
@@ -28,7 +28,7 @@
                 <include refid="Base_Column_List" />
                 from oauth_access_token where refresh_token= #{refreshToken} and client_id = #{clientId}
         </select>
-        <insert id="saveAccessToken" parameterType="org.power4j.oauth2.common.pojo.ClientDetails">
+        <insert id="saveAccessToken" parameterType="com.power4j.oauth2.common.pojo.ClientDetails">
                 insert into oauth_access_token(token_id,token_expired_seconds,authentication_id, username,client_id,token_type, refresh_token_expired_seconds,refresh_token, create_time)
                  values
                 (#{tokenId,jdbcType=VARCHAR}, #{tokenExpiredSeconds,jdbcType=INTEGER}, #{authenticationId,jdbcType=VARCHAR},

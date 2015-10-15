@@ -2,8 +2,8 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="org.power4j.oauth2.dao.OauthCodeDao">
-        <resultMap id="oauthCode" type="org.power4j.oauth2.common.pojo.OauthCode">
+<mapper namespace="com.power4j.oauth2.dao.OauthCodeDao">
+        <resultMap id="oauthCode" type="com.power4j.oauth2.common.pojo.OauthCode">
                 <result column="client_id" property="clientId" jdbcType="VARCHAR" />
                 <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
                 <result column="username" property="username" jdbcType="VARCHAR" />
@@ -12,7 +12,7 @@
         <sql id="Base_Column_List" >
                 client_id, client_secret, client_name, code
         </sql>
-        <insert id="saveOauthCode" parameterType="org.power4j.oauth2.common.pojo.OauthCode">
+        <insert id="saveOauthCode" parameterType="com.power4j.oauth2.common.pojo.OauthCode">
            insert into oauth_code (client_id, client_secret, client_name, code)
            values (#{clientId}, #{clientSecret}, #{name}, #{code})
         </insert>
