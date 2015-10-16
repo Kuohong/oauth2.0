@@ -60,7 +60,7 @@ public class ClientDetails implements Serializable {
     /**
      * 状态
      */
-    protected ClientStatus status = ClientStatus.SUBMITTED;
+    protected CommonStatus status = CommonStatus.SUBMITTED;
     /**
      * 是否是机密的
      */
@@ -206,11 +206,11 @@ public class ClientDetails implements Serializable {
         this.trusted = trusted;
     }
 
-    public ClientStatus getStatus() {
+    public CommonStatus getStatus() {
         return status;
     }
 
-    public void setStatus(ClientStatus status) {
+    public void setStatus(CommonStatus status) {
         this.status = status;
     }
 

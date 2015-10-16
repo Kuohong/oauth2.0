@@ -3,7 +3,7 @@ package com.power4j.oauth2.rs.security.realm.jdbc;
 
 
 import com.power4j.oauth2.common.pojo.ClientDetails;
-import com.power4j.oauth2.common.pojo.ClientStatus;
+import com.power4j.oauth2.common.pojo.CommonStatus;
 import com.power4j.oauth2.common.pojo.token.ServerAccessToken;
 import com.power4j.oauth2.rs.security.OAuth2AuthenticationException;
 import com.power4j.oauth2.rs.security.OAuth2Token;
@@ -56,7 +56,7 @@ public class OAuth2JdbcRealm extends Power4JRealm {
     }
 
     private void validateClientDetails(String token, ServerAccessToken accessToken, ClientDetails clientDetails) throws OAuth2AuthenticationException {
-        if (clientDetails == null || !clientDetails.getStatus().equals(ClientStatus.ENABLE)) {
+        if (clientDetails == null || !clientDetails.getStatus().equals(CommonStatus.ENABLE)) {
             log.debug("Invalid ClientDetails: {} by client_id: {}, it is null or archived", clientDetails, accessToken.clientId());
             throw new OAuth2AuthenticationException("Invalid client by token: " + token);
         }

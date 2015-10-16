@@ -51,6 +51,7 @@
       <module name="oauth-resource-core" target="1.7" />
       <module name="oauth-server" target="1.7" />
       <module name="oauth2.0" target="1.7" />
+      <module name="oauth2.0-parent" target="1.7" />
       <module name="resource" target="1.7" />
     </bytecodeTargetLevel>
   </component>

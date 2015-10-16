@@ -1,7 +1,7 @@
 package com.power4j.oauth2.rs.service.impl;
 
 import com.power4j.oauth2.common.pojo.ClientDetails;
-import com.power4j.oauth2.common.pojo.ClientStatus;
+import com.power4j.oauth2.common.pojo.CommonStatus;
 import com.power4j.oauth2.common.pojo.token.ServerAccessToken;
 import com.power4j.oauth2.common.pojo.token.bearer.BearerAccessToken;
 import com.power4j.oauth2.dao.ClientDetailsDao;
@@ -67,7 +67,7 @@ public class OauthServiceImpl implements OauthService {
     @Override public ClientDetails loadClientDetails(String clientId) {
 
         logger.debug("Load ClientDetails by clientId: {}", clientId);
-        return clientDetailsDao.findClientDetails(clientId , ClientStatus.ENABLE);
+        return clientDetailsDao.findClientDetails(clientId , CommonStatus.ENABLE);
     }
 
     /**
@@ -338,7 +338,7 @@ public class OauthServiceImpl implements OauthService {
         logger.debug("Create new AccessToken: {} from old AccessToken: {}", newAccessToken,
             oldToken);
 
-        ClientDetails details = clientDetailsDao.findClientDetails(clientId, ClientStatus.ENABLE);
+        ClientDetails details = clientDetailsDao.findClientDetails(clientId, CommonStatus.ENABLE);
         newAccessToken.updateByClientDetails(details);
 
         final String authId = authenticationIdGenerator.generate(clientId, oldToken.username(), null);

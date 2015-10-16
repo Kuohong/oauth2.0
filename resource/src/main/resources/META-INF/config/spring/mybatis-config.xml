@@ -19,8 +19,8 @@
         <!-- <typeHandler handler="org.apache.ibatis.type.EnumOrdinalTypeHandler"
             javaType="cn.com.teacher.cistus.dt.entity.TestMenu" /> -->
         <typeHandler
-                handler="com.power4j.oauth2.mybatis.handler.ClientStatusHandler"
-                javaType="com.power4j.oauth2.common.pojo.ClientStatus" />
+                handler="com.power4j.oauth2.mybatis.handler.CommonStatusHandler"
+                javaType="com.power4j.oauth2.common.pojo.CommonStatus" />
     </typeHandlers>
     <mappers>
        <!-- <mapper resource="mapper/*.xml"/>-->

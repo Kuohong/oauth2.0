@@ -108,7 +108,7 @@
 
     <!-- Spring context listener -->
     <listener>
-        <listener-class>org.power4j.framework.context.BeanContextLoaderListener</listener-class>
+        <listener-class>com.power4j.framework.context.BeanContextLoaderListener</listener-class>
     </listener>
 
     <!--mvc-->

@@ -12,6 +12,7 @@
 package com.power4j.oauth2.token.handler;
 
 import com.power4j.oauth2.authorize.handler.OAuthHandler;
+import com.power4j.oauth2.common.web.util.WebUtils;
 import com.power4j.oauth2.validator.AbstractClientDetailsValidator;
 import org.apache.oltu.oauth2.common.exception.OAuthProblemException;
 import org.apache.oltu.oauth2.common.exception.OAuthSystemException;

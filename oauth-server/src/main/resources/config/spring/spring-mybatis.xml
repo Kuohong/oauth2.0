@@ -67,12 +67,12 @@
     </bean>
     <!-- spring与mybatis整合配置，扫描所有dao -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer"
-          p:basePackage="org.power4j.*.dao"
+          p:basePackage="com.power4j.*.dao"
           p:sqlSessionFactoryBeanName="sqlSessionFactory" />
 
     <!--aop-->
     <aop:config>
-        <aop:advisor advice-ref="applicationAdvisor" pointcut="execution(* org.power4j.oauth2.service.*.*(..))"/>
+        <aop:advisor advice-ref="applicationAdvisor" pointcut="execution(* com.power4j.oauth2.rs.service.*.*(..))"/>
     </aop:config>
 
     <!--advisor-->

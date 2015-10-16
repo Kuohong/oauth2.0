@@ -1,8 +1,9 @@
 package com.power4j.oauth2.rs.security.rsfilter;
 
 import com.power4j.framework.context.util.BeanProvider;
-import com.power4j.oauth2.common.pojo.ClientStatus;
+import com.power4j.oauth2.common.pojo.CommonStatus;
 import com.power4j.oauth2.rs.security.OAuthPrincipal;
+import com.power4j.oauth2.rs.security.rsfilter.pojo.RSOAuthClient;
 import com.power4j.oauth2.rs.service.OAuthRSService;
 import org.apache.oltu.oauth2.common.error.OAuthError;
 import org.apache.oltu.oauth2.common.exception.OAuthProblemException;
@@ -49,7 +50,7 @@ public class Power4JOAuthRSProvider implements OAuthRSProvider {
     }
 
     private void validateClientDetails(String token, ServerAccessToken accessToken, ClientDetails clientDetails) throws OAuthProblemException {
-        if (clientDetails == null || !clientDetails.getStatus().equals(ClientStatus.ENABLE)) {
+        if (clientDetails == null || !clientDetails.getStatus().equals(CommonStatus.ENABLE)) {
             LOG.debug("Invalid ClientDetails: {} by client_id: {}, it is null or archived", clientDetails, accessToken.clientId());
             throw OAuthProblemException.error(OAuthError.ResourceResponse.INVALID_TOKEN)
                 .description("Invalid client by token: " + token);

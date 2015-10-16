@@ -10,7 +10,7 @@
         <!--<property name="storedCredentialsHexEncoded" value="false"/>-->
     </bean>
 
-   <bean id="jdbcRealm" class="com.power4j.oauth2.security.Power4JRealm" >
+   <bean id="jdbcRealm" class="com.power4j.oauth2.rs.security.realm.jdbc.Power4JRealm" >
         <property name="name" value="jdbcRealm"/>
         <property name="dataSource" ref="dataSource"/>
         <property name="credentialsMatcher" ref="credentialsMatcher"/>
@@ -23,17 +23,17 @@
         <property name="realm" ref="jdbcRealm"/>
         <property name="cacheManager" ref="shiroCacheManager"/>
     </bean>
-    <!--Single resource-->
-    <bean class="org.power4j.oauth2.security.shiro.OAuth2Filter" id="auth2Filter">
+  <!--  &lt;!&ndash;Single resource&ndash;&gt;
+    <bean  id="auth2Filter" class="com.power4j.oauth2.rs.security.filter.OAuth2Filter">
         <property name="resourceId" value="os-resource"/>
         <property name="rsService" ref="oAuthRSService"/>
-    </bean>
+    </bean>-->
 
     <!--mobile resource-->
-    <bean class="com.monkeyk.os.oauth.shiro.OAuth2Filter" id="mobileOauth2Filter">
+    <!--<bean class="com.monkeyk.os.oauth.shiro.OAuth2Filter" id="mobileOauth2Filter">
         <property name="resourceId" value="mobile-resource"/>
         <property name="rsService" ref="oAuthRSService"/>
-    </bean>
+    </bean>-->
 
     <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean" >
         <property name="securityManager" ref="securityManager"/>

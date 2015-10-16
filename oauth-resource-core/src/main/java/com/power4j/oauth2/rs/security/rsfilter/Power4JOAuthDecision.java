@@ -1,5 +1,6 @@
 package com.power4j.oauth2.rs.security.rsfilter;
 
+import com.power4j.oauth2.rs.security.rsfilter.pojo.RSOAuthClient;
 import org.apache.oltu.oauth2.rsfilter.OAuthClient;
 import org.apache.oltu.oauth2.rsfilter.OAuthDecision;
 

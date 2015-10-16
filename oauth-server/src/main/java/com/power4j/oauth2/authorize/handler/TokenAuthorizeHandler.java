@@ -3,6 +3,7 @@ package com.power4j.oauth2.authorize.handler;
 
 import com.power4j.oauth2.common.pojo.ClientDetails;
 import com.power4j.oauth2.common.pojo.token.ServerAccessToken;
+import com.power4j.oauth2.common.web.util.WebUtils;
 import com.power4j.oauth2.validator.AbstractClientDetailsValidator;
 import com.power4j.oauth2.validator.TokenClientDetailsValidator;
 import com.power4j.oauth2.web.wapper.OAuthAuthxRequest;

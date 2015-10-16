@@ -1,5 +1,6 @@
 package com.power4j.oauth2.web.handler;
 
+import com.power4j.oauth2.common.web.util.WebUtils;
 import org.apache.oltu.oauth2.as.response.OAuthASResponse;
 import org.apache.oltu.oauth2.common.error.OAuthError;
 import org.apache.oltu.oauth2.common.exception.OAuthSystemException;
