@@ -10,7 +10,7 @@
       <module fileurl="file://$PROJECT_DIR$/oauth-server/oauth-server.iml" filepath="$PROJECT_DIR$/oauth-server/oauth-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/oauth2.0.iml" filepath="$PROJECT_DIR$/oauth2.0.iml" />
       <module fileurl="file://$PROJECT_DIR$/oauth2.0-parent.iml" filepath="$PROJECT_DIR$/oauth2.0-parent.iml" />
-      <module fileurl="file://$PROJECT_DIR$/resource/resource.iml" filepath="$PROJECT_DIR$/resource/resource.iml" />
+      <module fileurl="file://$PROJECT_DIR$/oauth2.0-parent.iml" filepath="$PROJECT_DIR$/oauth2.0-parent.iml" />
       <module fileurl="file://$PROJECT_DIR$/resource/resource.iml" filepath="$PROJECT_DIR$/resource/resource.iml" />
     </modules>
   </component>

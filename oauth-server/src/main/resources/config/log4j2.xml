@@ -23,7 +23,7 @@
         <Console name="console" target="SYSTEM_OUT">
             <PatternLayout pattern="%d %p [%c] - &lt;%m&gt;%n"/>
         </Console>
-        <RollingFile name="file" fileName="oauth.log" append="true"
+        <RollingFile name="file" fileName="${CATALINA_HOME}/oauth.log" append="true"
                      filePattern="cas-%d{yyyy-MM-dd-HH}-%i.log">
             <PatternLayout pattern="%d %p [%c] - %m%n"/>
             <Policies>

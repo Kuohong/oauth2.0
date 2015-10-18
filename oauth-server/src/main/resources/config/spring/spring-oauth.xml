@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+			http://www.springframework.org/schema/beans/spring-beans.xsd
+		  http://www.springframework.org/schema/tx
+		  http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!--<bean id="oAuthHandler" class="com.power4j.oauth2.authorize.handler.OAuthHandler" abstract="true">
+        <property name="oauthService" ref="oauthService"/>
+    </bean>
+
+    <bean id="authorizationCodeTokenHandler" class="com.power4j.oauth2.token.handler.AuthorizationCodeTokenHandler" parent="oAuthHandler">
+    </bean>
+    <bean id="clientCredentialsTokenHandler" class="com.power4j.oauth2.token.handler.ClientCredentialsTokenHandler" parent="oAuthHandler">
+    </bean>
+    <bean id="passwordTokenHandler" class="com.power4j.oauth2.token.handler.PasswordTokenHandler" parent="oAuthHandler">
+    </bean>
+    <bean id="refreshTokenHandler" class="com.power4j.oauth2.token.handler.RefreshTokenHandler" parent="oAuthHandler">
+    </bean>
+
+    <bean id="abstractClientDetailsValidator" class="com.power4j.oauth2.validator.AbstractClientDetailsValidator" abstract="true">
+        <property name="oauthService" ref="oauthService"/>
+    </bean>-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       <!--<bean id="authenticationIdGenerator" class="com.power4j.oauth2.support.DefaultAuthenticationIdGeneratorImpl"/>
+
+
+    <bean id="oAuthIssuer" class="org.apache.oltu.oauth2.as.issuer.OAuthIssuerImpl">
+        <constructor-arg>
+            <bean class="org.apache.oltu.oauth2.as.issuer.MD5Generator"/>
+        </constructor-arg>
+    </bean>-->
+
+    <!--more bean configuration in here-->
+
+</beans>

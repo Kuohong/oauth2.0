@@ -36,7 +36,7 @@
         can be moved between tiers without modification.
     </description>
 
-    <util:properties id="properties" location="classpath*:config/properties/jdbc.properties"></util:properties>
+    <util:properties id="properties" location="classpath*:META-INF/config/properties/jdbc.properties,classpath*:META-INF/config/properties/resource.properties"></util:properties>
 
     <context:property-placeholder properties-ref="properties"/>
 

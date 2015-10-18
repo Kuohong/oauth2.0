@@ -4,44 +4,44 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.power4j.oauth2.dao.UserDao">
         <resultMap id="user" type="com.power4j.oauth2.common.pojo.User">
-                <result column="id" property="id" jdbcType="INTEGER" />
-                <result column="uuid" property="uuid" jdbcType="VARCHAR" />
-                <result column="user_name" property="userName" jdbcType="VARCHAR"/>
-                <result column="passsword" property="password" jdbcType="VARCHAR"/>
-                <result column="nick_name" property="nickName" jdbcType="VARCHAR"/>
-                <result column="real_name" property="realName" jdbcType="VARCHAR"/>
-                <result column="status" property="status" typeHandler="com.power4j.oauth2.mybatis.handler.CommonStatusHandler" />
-                <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+                <result column="id_" property="id" jdbcType="INTEGER" />
+                <result column="uuid_" property="uuid" jdbcType="VARCHAR" />
+                <result column="user_name_" property="userName" jdbcType="VARCHAR"/>
+                <result column="password_" property="password" jdbcType="VARCHAR"/>
+                <result column="nick_name_" property="nickName" jdbcType="VARCHAR"/>
+                <result column="real_name_" property="realName" jdbcType="VARCHAR"/>
+                <result column="status_" property="status" typeHandler="com.power4j.oauth2.mybatis.handler.CommonStatusHandler" />
+                <result column="create_time_" property="createTime" jdbcType="TIMESTAMP" />
         </resultMap>
         <sql id="Base_Column_List" >
-                id, uuid,user_name,  password, nick_name, real_name, status, create_time
+                id_, uuid_, user_name_,  password_, nick_name_, real_name_, status_, create_time_
         </sql>
         <insert id="saveUser" parameterType="com.power4j.oauth2.common.pojo.User">
-           insert into sys_user (uuid, user_name, passsword, nick_name, real_name, status, create_time)
-           values (#{uuid}, #{userName}, #{password}, #{nickName}, #{realName}, #{status, typeHandler="com.power4j.oauth2.mybatis.handler.CommonStatusHandler}, #{createTime})
+           insert into sys_user (uuid_, user_name_, passsword_, nick_name_, real_name_, status_, create_time_)
+           values (#{uuid}, #{userName}, #{password}, #{nickName_}, #{realName}, #{status_, typeHandler=com.power4j.oauth2.mybatis.handler.CommonStatusHandler}, #{createTime_})
         </insert>
-        <select id="selectUserByUserName"  resultMap="role">
+        <select id="selectUserByUserName"  resultMap="user">
           SELECT
           <include refid="Base_Column_List"/>
           FROM sys_user
-          WHERE user_name = #{userName}
+          WHERE user_name_ = #{userName}
         </select>
-        <select id="selectByUuId" resultMap="role">
+        <select id="selectByUuId" resultMap="user">
             SELECT
             <include refid="Base_Column_List"/>
             FROM sys_user
-            WHERE uuid = #{uuid}
+            WHERE uuid_ = #{uuid}
         </select>
     <update id="updateUserStatus">
-        UPDATE sys_user SET status = #{status, typeHandler=com.power4j.oauth2.mybatis.handler.CommonStatusHandler}
-        where uuid = #{uuid}
+        UPDATE sys_user SET status_ = #{status, typeHandler=com.power4j.oauth2.mybatis.handler.CommonStatusHandler}
+        where uuid_ = #{uuid}
     </update>
 
     <insert id="insertUserRole">
-        INSERT INTO sys_user_role (user_uuid, role_uuid) values (#{userUUID}, #{roleUUID})
+        INSERT INTO sys_user_role (user_uuid_, role_uuid_) values (#{userUUID}, #{roleUUID})
     </insert>
     <delete id="deleteUserRole">
-        DELETE FROM sys_user_role WHERE user_uuid = #{uuid}
+        DELETE FROM sys_user_role WHERE user_uuid_ = #{uuid}
     </delete>
 
 </mapper>

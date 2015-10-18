@@ -15,4 +15,5 @@ public interface ClientDetailsDao {
 
     int saveClientDetails(ClientDetails clientDetails);
 
+    ClientDetails selectClientDetailsByClientIdAndResourceIds(@Param("clientId") String clientId, @Param("resourceIds") String resourceIds);
 }

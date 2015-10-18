@@ -11,5 +11,5 @@ import org.apache.ibatis.annotations.Param;
  * @version 2015-10-15
  */
 public interface ServerAccessTokenDao {
-    ServerAccessToken findAccessTokenByTokenId(@Param("tokenId") String tokenId);
+    ServerAccessToken selectAccessTokenByTokenId(@Param("tokenId") String tokenId);
 }

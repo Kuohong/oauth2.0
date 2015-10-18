@@ -1,5 +1,6 @@
 package com.power4j.oauth2.service.impl;
 
+import com.power4j.oauth2.common.pojo.CommonStatus;
 import com.power4j.oauth2.common.pojo.Permission;
 import com.power4j.oauth2.common.pojo.Role;
 import com.power4j.oauth2.common.pojo.User;
@@ -36,8 +37,8 @@ public class AccountServiceImpl implements AccountService {
 
     @Override public SimpleAuthorizationInfo getAccountRolePermission(String accountUUID) {
         SimpleAuthorizationInfo token = new SimpleAuthorizationInfo();
-        //获取所有权限
-        List<Permission> permissionList = permissionDao.selectAll();
+        /*//获取所有权限
+        List<Permission> permissionList = permissionDao.selectAll();*/
         //用户角色名字
         Set<String> roleNameSet = new HashSet<String>();
         //权限名字
@@ -80,12 +81,13 @@ public class AccountServiceImpl implements AccountService {
         user.setUserName(userVo.getAccount());
         user.setPassword(userVo.getPassword());
         user.setCreateTime(new Date());
-        userDao.insert(user);
+        userDao.saveUser(user);
     }
 
     @Override public void deleteUser(String uuid) {
-        userDao.deleteUserRole(uuid);
-        userDao.deleteUser(uuid);
+        User user = userDao.selectByUuId(uuid);
+        user.setStatus(CommonStatus.DISABLE);
+        userDao.updateUserStatus(user);
     }
 
     @Override public void updateUserRole(String uuid, String roleUUDs) {

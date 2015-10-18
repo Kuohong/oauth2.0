@@ -1,6 +1,6 @@
 package com.power4j.oauth2.web.controller;
 
-import com.power4j.oauth2.rs.service.vo.LoginVo;
+import com.power4j.oauth2.service.vo.LoginVo;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.slf4j.Logger;
@@ -59,6 +59,17 @@ public class LoginController {
     public String login(@ModelAttribute("formDto") LoginVo formDto, BindingResult errors) {
 
         UsernamePasswordToken token = formDto.token();
+        /*DefaultHashService hashService = new DefaultHashService(); //默认算法SHA-512
+        hashService.setHashAlgorithmName("SHA-512");
+        hashService.setPrivateSalt(new SimpleByteSource("123")); //私盐，默认无
+        hashService.setGeneratePublicSalt(true);//是否生成公盐，默认false
+        hashService.setRandomNumberGenerator(new SecureRandomNumberGenerator());//用于生成公盐。默认就这个
+        hashService.setHashIterations(1); //生成Hash值的迭代次数
+
+        HashRequest request = new HashRequest.Builder()
+            .setAlgorithmName("MD5").setSource(ByteSource.Util.bytes("hello"))
+            .setSalt(ByteSource.Util.bytes("123")).setIterations(2).build();
+        String hex = hashService.computeHash(request).toHex();*/
         token.setRememberMe(false);
 
         try {

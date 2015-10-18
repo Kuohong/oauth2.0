@@ -1,0 +1,84 @@
+2015-10-17 23:42:54,690 DEBUG [org.mybatis.spring.mapper.ClassPathMapperScanner] - Identified candidate component class: file [D:\sources\git\oauth2.0\oauth-server\target\oauth-server\WEB-INF\classes\com\power4j\oauth2\dao\ClientDetailsDao.class]
+2015-10-17 23:42:54,692 DEBUG [org.mybatis.spring.mapper.ClassPathMapperScanner] - Identified candidate component class: file [D:\sources\git\oauth2.0\oauth-server\target\oauth-server\WEB-INF\classes\com\power4j\oauth2\dao\OauthCodeDao.class]
+2015-10-17 23:42:54,700 DEBUG [org.mybatis.spring.mapper.ClassPathMapperScanner] - Identified candidate component class: file [D:\sources\git\oauth2.0\oauth-server\target\oauth-server\WEB-INF\classes\com\power4j\oauth2\dao\PermissionDao.class]
+2015-10-17 23:42:54,709 DEBUG [org.mybatis.spring.mapper.ClassPathMapperScanner] - Identified candidate component class: file [D:\sources\git\oauth2.0\oauth-server\target\oauth-server\WEB-INF\classes\com\power4j\oauth2\dao\RoleDao.class]
+2015-10-17 23:42:54,712 DEBUG [org.mybatis.spring.mapper.ClassPathMapperScanner] - Identified candidate component class: file [D:\sources\git\oauth2.0\oauth-server\target\oauth-server\WEB-INF\classes\com\power4j\oauth2\dao\ServerAccessTokenDao.class]
+2015-10-17 23:42:54,713 DEBUG [org.mybatis.spring.mapper.ClassPathMapperScanner] - Identified candidate component class: file [D:\sources\git\oauth2.0\oauth-server\target\oauth-server\WEB-INF\classes\com\power4j\oauth2\dao\UserDao.class]
+2015-10-17 23:42:54,714 DEBUG [org.mybatis.spring.mapper.ClassPathMapperScanner] - Creating MapperFactoryBean with name 'clientDetailsDao' and 'com.power4j.oauth2.dao.ClientDetailsDao' mapperInterface
+2015-10-17 23:42:54,714 DEBUG [org.mybatis.spring.mapper.ClassPathMapperScanner] - Creating MapperFactoryBean with name 'oauthCodeDao' and 'com.power4j.oauth2.dao.OauthCodeDao' mapperInterface
+2015-10-17 23:42:54,714 DEBUG [org.mybatis.spring.mapper.ClassPathMapperScanner] - Creating MapperFactoryBean with name 'permissionDao' and 'com.power4j.oauth2.dao.PermissionDao' mapperInterface
+2015-10-17 23:42:54,714 DEBUG [org.mybatis.spring.mapper.ClassPathMapperScanner] - Creating MapperFactoryBean with name 'roleDao' and 'com.power4j.oauth2.dao.RoleDao' mapperInterface
+2015-10-17 23:42:54,714 DEBUG [org.mybatis.spring.mapper.ClassPathMapperScanner] - Creating MapperFactoryBean with name 'serverAccessTokenDao' and 'com.power4j.oauth2.dao.ServerAccessTokenDao' mapperInterface
+2015-10-17 23:42:54,714 DEBUG [org.mybatis.spring.mapper.ClassPathMapperScanner] - Creating MapperFactoryBean with name 'userDao' and 'com.power4j.oauth2.dao.UserDao' mapperInterface
+2015-10-17 23:42:56,712 INFO [com.alibaba.druid.pool.DruidDataSource] - {dataSource-1} inited
+2015-10-17 23:42:57,339 DEBUG [org.apache.ibatis.logging.LogFactory] - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2015-10-17 23:42:57,339 DEBUG [org.apache.ibatis.logging.LogFactory] - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2015-10-17 23:42:57,913 DEBUG [org.mybatis.spring.SqlSessionFactoryBean] - Registered plugin: 'com.github.pagehelper.PageHelper@2199e845'
+2015-10-17 23:42:58,002 DEBUG [org.apache.ibatis.logging.LogFactory] - Logging initialized using 'class org.apache.ibatis.logging.log4j2.Log4j2Impl' adapter.
+2015-10-17 23:42:58,002 DEBUG [org.apache.ibatis.logging.LogFactory] - Logging initialized using 'class org.apache.ibatis.logging.log4j2.Log4j2Impl' adapter.
+2015-10-17 23:42:58,006 DEBUG [org.mybatis.spring.SqlSessionFactoryBean] - Parsed configuration file: 'class path resource [config/spring/mybatis-config.xml]'
+2015-10-17 23:42:58,170 DEBUG [org.mybatis.spring.SqlSessionFactoryBean] - Parsed mapper file: 'file [D:\sources\git\oauth2.0\oauth-server\target\oauth-server\WEB-INF\classes\mapper\com\power4j\oauth\ClientDetailsMapper.xml]'
+2015-10-17 23:42:58,208 DEBUG [org.mybatis.spring.SqlSessionFactoryBean] - Parsed mapper file: 'file [D:\sources\git\oauth2.0\oauth-server\target\oauth-server\WEB-INF\classes\mapper\com\power4j\oauth\OauthCodeMapper.xml]'
+2015-10-17 23:42:58,257 DEBUG [org.mybatis.spring.SqlSessionFactoryBean] - Parsed mapper file: 'file [D:\sources\git\oauth2.0\oauth-server\target\oauth-server\WEB-INF\classes\mapper\com\power4j\oauth\PermissionMapper.xml]'
+2015-10-17 23:42:58,281 DEBUG [org.mybatis.spring.SqlSessionFactoryBean] - Parsed mapper file: 'file [D:\sources\git\oauth2.0\oauth-server\target\oauth-server\WEB-INF\classes\mapper\com\power4j\oauth\RoleMapper.xml]'
+2015-10-17 23:42:58,321 DEBUG [org.mybatis.spring.SqlSessionFactoryBean] - Parsed mapper file: 'file [D:\sources\git\oauth2.0\oauth-server\target\oauth-server\WEB-INF\classes\mapper\com\power4j\oauth\ServerAccessTokenMapper.xml]'
+2015-10-17 23:42:58,338 DEBUG [org.mybatis.spring.SqlSessionFactoryBean] - Parsed mapper file: 'file [D:\sources\git\oauth2.0\oauth-server\target\oauth-server\WEB-INF\classes\mapper\com\power4j\oauth\UserMapper.xml]'
+2015-10-17 23:42:58,420 DEBUG [org.apache.shiro.realm.AuthorizingRealm] - No authorizationCache instance set.  Checking for a cacheManager...
+2015-10-17 23:42:58,421 DEBUG [org.apache.shiro.realm.AuthorizingRealm] - CacheManager [MemoryConstrainedCacheManager with 0 cache(s)): []] has been configured.  Building authorization cache named [jdbcRealm.authorizationCache]
+2015-10-17 23:42:58,641 DEBUG [org.apache.shiro.realm.AuthorizingRealm] - No authorizationCache instance set.  Checking for a cacheManager...
+2015-10-17 23:42:58,641 DEBUG [org.apache.shiro.realm.AuthorizingRealm] - CacheManager [MemoryConstrainedCacheManager with 1 cache(s)): [MapCache 'jdbcRealm.authorizationCache' (0 entries)]] has been configured.  Building authorization cache named [jdbcRealm.authorizationCache]
+2015-10-17 23:42:58,815 DEBUG [org.reflections.Reflections] - going to scan these urls:
+jar:file:/D:/sources/git/oauth2.0/oauth-server/target/oauth-server/WEB-INF/lib/log4j-web-2.4.1.jar!/
+2015-10-17 23:42:58,857 DEBUG [org.reflections.Reflections] - could not scan file META-INF/MANIFEST.MF in url jar:file:/D:/sources/git/oauth2.0/oauth-server/target/oauth-server/WEB-INF/lib/log4j-web-2.4.1.jar!/ with scanner SubTypesScanner
+2015-10-17 23:42:58,857 DEBUG [org.reflections.Reflections] - could not scan file log4j2.component.properties in url jar:file:/D:/sources/git/oauth2.0/oauth-server/target/oauth-server/WEB-INF/lib/log4j-web-2.4.1.jar!/ with scanner SubTypesScanner
+2015-10-17 23:42:58,858 DEBUG [org.reflections.Reflections] - could not scan file META-INF/org/apache/logging/log4j/core/config/plugins/Log4j2Plugins.dat in url jar:file:/D:/sources/git/oauth2.0/oauth-server/target/oauth-server/WEB-INF/lib/log4j-web-2.4.1.jar!/ with scanner SubTypesScanner
+2015-10-17 23:42:58,859 DEBUG [org.reflections.Reflections] - could not scan file META-INF/services/javax.servlet.ServletContainerInitializer in url jar:file:/D:/sources/git/oauth2.0/oauth-server/target/oauth-server/WEB-INF/lib/log4j-web-2.4.1.jar!/ with scanner SubTypesScanner
+2015-10-17 23:42:58,859 DEBUG [org.reflections.Reflections] - could not scan file META-INF/web-fragment.xml in url jar:file:/D:/sources/git/oauth2.0/oauth-server/target/oauth-server/WEB-INF/lib/log4j-web-2.4.1.jar!/ with scanner SubTypesScanner
+2015-10-17 23:42:58,914 DEBUG [org.reflections.Reflections] - could not scan file META-INF/maven/org.apache.logging.log4j/log4j-web/pom.xml in url jar:file:/D:/sources/git/oauth2.0/oauth-server/target/oauth-server/WEB-INF/lib/log4j-web-2.4.1.jar!/ with scanner SubTypesScanner
+2015-10-17 23:42:58,914 DEBUG [org.reflections.Reflections] - could not scan file META-INF/maven/org.apache.logging.log4j/log4j-web/pom.properties in url jar:file:/D:/sources/git/oauth2.0/oauth-server/target/oauth-server/WEB-INF/lib/log4j-web-2.4.1.jar!/ with scanner SubTypesScanner
+2015-10-17 23:42:58,915 INFO [org.reflections.Reflections] - Reflections took 98 ms to scan 1 urls, producing 10 keys and 10 values 
+2015-10-17 23:42:58,981 DEBUG [org.reflections.Reflections] - going to scan these urls:
+jar:file:/D:/sources/git/oauth2.0/oauth-server/target/oauth-server/WEB-INF/lib/log4j-web-2.4.1.jar!/
+2015-10-17 23:42:58,982 DEBUG [org.reflections.Reflections] - could not scan file META-INF/MANIFEST.MF in url jar:file:/D:/sources/git/oauth2.0/oauth-server/target/oauth-server/WEB-INF/lib/log4j-web-2.4.1.jar!/ with scanner SubTypesScanner
+2015-10-17 23:42:58,983 DEBUG [org.reflections.Reflections] - could not scan file log4j2.component.properties in url jar:file:/D:/sources/git/oauth2.0/oauth-server/target/oauth-server/WEB-INF/lib/log4j-web-2.4.1.jar!/ with scanner SubTypesScanner
+2015-10-17 23:42:58,983 DEBUG [org.reflections.Reflections] - could not scan file META-INF/org/apache/logging/log4j/core/config/plugins/Log4j2Plugins.dat in url jar:file:/D:/sources/git/oauth2.0/oauth-server/target/oauth-server/WEB-INF/lib/log4j-web-2.4.1.jar!/ with scanner SubTypesScanner
+2015-10-17 23:42:58,983 DEBUG [org.reflections.Reflections] - could not scan file META-INF/services/javax.servlet.ServletContainerInitializer in url jar:file:/D:/sources/git/oauth2.0/oauth-server/target/oauth-server/WEB-INF/lib/log4j-web-2.4.1.jar!/ with scanner SubTypesScanner
+2015-10-17 23:42:58,983 DEBUG [org.reflections.Reflections] - could not scan file META-INF/web-fragment.xml in url jar:file:/D:/sources/git/oauth2.0/oauth-server/target/oauth-server/WEB-INF/lib/log4j-web-2.4.1.jar!/ with scanner SubTypesScanner
+2015-10-17 23:42:59,019 DEBUG [org.reflections.Reflections] - could not scan file META-INF/maven/org.apache.logging.log4j/log4j-web/pom.xml in url jar:file:/D:/sources/git/oauth2.0/oauth-server/target/oauth-server/WEB-INF/lib/log4j-web-2.4.1.jar!/ with scanner SubTypesScanner
+2015-10-17 23:42:59,020 DEBUG [org.reflections.Reflections] - could not scan file META-INF/maven/org.apache.logging.log4j/log4j-web/pom.properties in url jar:file:/D:/sources/git/oauth2.0/oauth-server/target/oauth-server/WEB-INF/lib/log4j-web-2.4.1.jar!/ with scanner SubTypesScanner
+2015-10-17 23:42:59,020 INFO [org.reflections.Reflections] - Reflections took 38 ms to scan 1 urls, producing 10 keys and 10 values 
+2015-10-17 23:42:59,182 DEBUG [org.apache.shiro.spring.web.ShiroFilterFactoryBean] - Creating Shiro Filter instance.
+2015-10-17 23:42:59,243 DEBUG [org.apache.shiro.web.filter.mgt.DefaultFilterChainManager] - Creating chain [/favicon.ico] from String definition [anon]
+2015-10-17 23:42:59,244 DEBUG [org.apache.shiro.web.filter.mgt.DefaultFilterChainManager] - Attempting to apply path [/favicon.ico] to filter [anon] with config [null]
+2015-10-17 23:42:59,249 DEBUG [org.apache.shiro.web.filter.mgt.DefaultFilterChainManager] - Creating chain [/resources/**] from String definition [anon]
+2015-10-17 23:42:59,249 DEBUG [org.apache.shiro.web.filter.mgt.DefaultFilterChainManager] - Attempting to apply path [/resources/**] to filter [anon] with config [null]
+2015-10-17 23:42:59,249 DEBUG [org.apache.shiro.web.filter.mgt.DefaultFilterChainManager] - Creating chain [/login] from String definition [anon]
+2015-10-17 23:42:59,249 DEBUG [org.apache.shiro.web.filter.mgt.DefaultFilterChainManager] - Attempting to apply path [/login] to filter [anon] with config [null]
+2015-10-17 23:42:59,249 DEBUG [org.apache.shiro.web.filter.mgt.DefaultFilterChainManager] - Creating chain [/unauthorized] from String definition [anon]
+2015-10-17 23:42:59,250 DEBUG [org.apache.shiro.web.filter.mgt.DefaultFilterChainManager] - Attempting to apply path [/unauthorized] to filter [anon] with config [null]
+2015-10-17 23:42:59,250 DEBUG [org.apache.shiro.web.filter.mgt.DefaultFilterChainManager] - Creating chain [/oauth2.0/**] from String definition [anon]
+2015-10-17 23:42:59,251 DEBUG [org.apache.shiro.web.filter.mgt.DefaultFilterChainManager] - Attempting to apply path [/oauth2.0/**] to filter [anon] with config [null]
+2015-10-17 23:42:59,251 DEBUG [org.apache.shiro.web.filter.mgt.DefaultFilterChainManager] - Creating chain [/logout] from String definition [logout]
+2015-10-17 23:42:59,251 DEBUG [org.apache.shiro.web.filter.mgt.DefaultFilterChainManager] - Attempting to apply path [/logout] to filter [logout] with config [null]
+2015-10-17 23:42:59,251 DEBUG [org.apache.shiro.web.filter.mgt.DefaultFilterChainManager] - Creating chain [/admin/**] from String definition [authc, roles["Admin"]]
+2015-10-17 23:42:59,251 DEBUG [org.apache.shiro.web.filter.mgt.DefaultFilterChainManager] - Attempting to apply path [/admin/**] to filter [authc] with config [null]
+2015-10-17 23:42:59,251 DEBUG [org.apache.shiro.web.filter.mgt.DefaultFilterChainManager] - Attempting to apply path [/admin/**] to filter [roles] with config [Admin]
+2015-10-17 23:42:59,251 DEBUG [org.apache.shiro.web.filter.mgt.DefaultFilterChainManager] - Creating chain [/user/list] from String definition [authc, perms["user:manage"]]
+2015-10-17 23:42:59,255 DEBUG [org.apache.shiro.web.filter.mgt.DefaultFilterChainManager] - Attempting to apply path [/user/list] to filter [authc] with config [null]
+2015-10-17 23:42:59,255 DEBUG [org.apache.shiro.web.filter.mgt.DefaultFilterChainManager] - Attempting to apply path [/user/list] to filter [perms] with config [user:manage]
+2015-10-17 23:42:59,255 DEBUG [org.apache.shiro.web.filter.mgt.DefaultFilterChainManager] - Creating chain [/user/create] from String definition [authc, perms["user:create"]]
+2015-10-17 23:42:59,256 DEBUG [org.apache.shiro.web.filter.mgt.DefaultFilterChainManager] - Attempting to apply path [/user/create] to filter [authc] with config [null]
+2015-10-17 23:42:59,256 DEBUG [org.apache.shiro.web.filter.mgt.DefaultFilterChainManager] - Attempting to apply path [/user/create] to filter [perms] with config [user:create]
+2015-10-17 23:42:59,256 DEBUG [org.apache.shiro.web.filter.mgt.DefaultFilterChainManager] - Creating chain [/**] from String definition [authc]
+2015-10-17 23:42:59,256 DEBUG [org.apache.shiro.web.filter.mgt.DefaultFilterChainManager] - Attempting to apply path [/**] to filter [authc] with config [null]
+2015-10-17 23:43:00,814 DEBUG [org.jboss.logging] - Logging Provider: org.jboss.logging.Log4j2LoggerProvider
+2015-10-17 23:43:00,815 INFO [org.hibernate.validator.internal.util.Version] - HV000001: Hibernate Validator 5.2.2.Final
+2015-10-17 23:43:00,879 DEBUG [org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver] - Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2015-10-17 23:43:00,933 DEBUG [org.hibernate.validator.internal.engine.ConfigurationImpl] - Setting custom MessageInterpolator of type org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator
+2015-10-17 23:43:00,934 DEBUG [org.hibernate.validator.internal.engine.ConfigurationImpl] - Setting custom ConstraintValidatorFactory of type org.springframework.validation.beanvalidation.SpringConstraintValidatorFactory
+2015-10-17 23:43:00,941 DEBUG [org.hibernate.validator.internal.engine.ConfigurationImpl] - Setting custom ParameterNameProvider of type com.sun.proxy.$Proxy56
+2015-10-17 23:43:00,945 DEBUG [org.hibernate.validator.internal.xml.ValidationXmlParser] - Trying to load META-INF/validation.xml for XML based Validator configuration.
+2015-10-17 23:43:00,948 DEBUG [org.hibernate.validator.internal.xml.ResourceLoaderHelper] - Trying to load META-INF/validation.xml via user class loader
+2015-10-17 23:43:00,949 DEBUG [org.hibernate.validator.internal.xml.ResourceLoaderHelper] - Trying to load META-INF/validation.xml via TCCL
+2015-10-17 23:43:00,951 DEBUG [org.hibernate.validator.internal.xml.ResourceLoaderHelper] - Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+2015-10-17 23:43:00,951 DEBUG [org.hibernate.validator.internal.xml.ValidationXmlParser] - No META-INF/validation.xml found. Using annotation based configuration only.

@@ -13,6 +13,7 @@ public class User {
     private String realName;
     private String password;
     private Date createTime;
+    private CommonStatus status;
 
     public Integer getId() {
         return id;
@@ -69,4 +70,13 @@ public class User {
     public void setRealName(String realName) {
         this.realName = realName;
     }
+
+    public CommonStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(CommonStatus status) {
+        this.status = status;
+    }
+
 }

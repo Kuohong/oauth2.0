@@ -12,5 +12,5 @@ import org.apache.ibatis.annotations.Param;
  */
 public interface ClientDetailsDao {
 
-    ClientDetails findClientDetailsByClientIdAndResourceIds(@Param("clientId") String clientId, @Param("resourceId") String resourceId);
+    ClientDetails selectClientDetailsByClientIdAndResourceIds(@Param("clientId") String clientId, @Param("resourceId") String resourceId);
 }

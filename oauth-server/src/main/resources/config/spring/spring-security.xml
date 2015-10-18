@@ -5,22 +5,53 @@
 			http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
-    <bean id="credentialsMatcher" class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
+   <!-- <bean id="credentialsMatcher" class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
         <property name="hashAlgorithmName" value="MD5"/>
-        <!--<property name="storedCredentialsHexEncoded" value="false"/>-->
+        &lt;!&ndash;<property name="storedCredentialsHexEncoded" value="false"/>&ndash;&gt;
+    </bean>-->
+    <bean id="hashService" class="org.apache.shiro.crypto.hash.DefaultHashService">
+
+    </bean>
+    <bean id="passwordService" class="org.apache.shiro.authc.credential.DefaultPasswordService">
+        <property name="hashService" ref="hashService"/>
+    </bean>
+    <bean id="passwordCredentialsMatcher" class="org.apache.shiro.authc.credential.PasswordMatcher">
+        <property name="passwordService" ref="passwordService"></property>
+     </bean>
+    <bean id="resourcesCredentialsMatcher" class="org.apache.shiro.authc.credential.SimpleCredentialsMatcher"/>
+    <bean id="credentialsMatcher" class="com.power4j.oauth2.security.credential.OAuth2CredentialsMatcher" >
+        <property name="authzCredentialsMatcher" ref="passwordCredentialsMatcher"/>
+        <property name="resourcesCredentialsMatcher" ref="resourcesCredentialsMatcher"/>
     </bean>
 
-   <bean id="jdbcRealm" class="com.power4j.oauth2.rs.security.realm.jdbc.Power4JRealm" >
+   <!--<bean id="jdbcRealm" class="com.power4j.oauth2.rs.security.realm.jdbc.Power4JRealm" >
         <property name="name" value="jdbcRealm"/>
         <property name="dataSource" ref="dataSource"/>
         <property name="credentialsMatcher" ref="credentialsMatcher"/>
         <property name="permissionsLookupEnabled" value="true"/>
+    </bean>-->
+    <bean id="jdbcRealm" class="com.power4j.oauth2.security.realm.Power4JUserNamePasswordRealm" >
+        <property name="name" value="jdbcRealm"/>
+       <!-- <property name="dataSource" ref="dataSource"/>-->
+        <property name="credentialsMatcher" ref="passwordCredentialsMatcher"/>
+       <!-- <property name="permissionsLookupEnabled" value="true"/>-->
+    </bean>
+    <bean id="oauth2JdbcRealm" class="com.power4j.oauth2.security.realm.jdbc.OAuth2JdbcRealm" >
+        <property name="name" value="jdbcRealm"/>
+        <property name="dataSource" ref="dataSource"/>
+        <property name="credentialsMatcher" ref="credentialsMatcher"/>
+        <property name="permissionsLookupEnabled" value="true"/>
+        <property name="rsService" ref="oAuthRSService"/>
     </bean>
 
     <bean id="shiroCacheManager" class="org.apache.shiro.cache.MemoryConstrainedCacheManager" />
 
     <bean class="org.apache.shiro.web.mgt.DefaultWebSecurityManager" id="securityManager">
         <property name="realm" ref="jdbcRealm"/>
+        <property name="cacheManager" ref="shiroCacheManager"/>
+    </bean>
+    <bean class="org.apache.shiro.web.mgt.DefaultWebSecurityManager" id="oauth2SecurityManager">
+        <property name="realm" ref="oauth2JdbcRealm"/>
         <property name="cacheManager" ref="shiroCacheManager"/>
     </bean>
   <!--  &lt;!&ndash;Single resource&ndash;&gt;
@@ -34,6 +65,35 @@
         <property name="resourceId" value="mobile-resource"/>
         <property name="rsService" ref="oAuthRSService"/>
     </bean>-->
+    <bean id="auth2Filter" class="com.power4j.oauth2.security.filter.OAuth2Filter">
+        <property name="rsService" ref="oAuthRSService"/>
+        <property name="resourceId" value="user"/>
+    </bean>
+
+    <bean class="org.apache.shiro.spring.web.ShiroFilterFactoryBean" id="oauthShiroFilter">
+        <property name="securityManager" ref="oauth2SecurityManager"/>
+        <property name="loginUrl" value="/login"/>
+        <property name="successUrl" value="/index"/>
+        <property name="unauthorizedUrl" value="/unauthorized"/>
+        <property name="filters">
+            <map>
+                <entry key="oauth" value-ref="auth2Filter"/>
+                <!--<entry key="mOauth" value-ref="mobileOauth2Filter"/>-->
+                <!--<entry key="oauth2" value-ref="auth2xxxFilter"/>-->
+                <!--<entry key="oauth3" value-ref="auth2xxFilter"/>-->
+            </map>
+        </property>
+        <property name="filterChainDefinitions">
+            <value>
+                # oauth
+                /rs/** = oauth
+                /info/** = oauth
+                /mobile/** = mOauth
+                # everything else allow
+                /** = anon
+            </value>
+        </property>
+    </bean>
 
     <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean" >
         <property name="securityManager" ref="securityManager"/>
@@ -47,12 +107,12 @@
                 /login = anon
                 /unauthorized = anon
                 # OAuth anon
-                /oauth/** = anon
+                /oauth2.0/** = anon
                 /logout = logout
                 # admin role
                 /admin/** = authc, roles["Admin"]
                 #user permissions
-                /user/list = authc, perms["user:list"]
+                /user/list = authc, perms["user:manage"]
                 /user/create = authc, perms["user:create"]
                 # everything else requires authentication:
                 /** = authc

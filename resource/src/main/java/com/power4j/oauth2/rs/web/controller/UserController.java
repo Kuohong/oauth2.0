@@ -1,6 +1,6 @@
 package com.power4j.oauth2.rs.web.controller;
 
-import com.power4j.oauth2.rs.service.vo.UserNameVo;
+import com.power4j.oauth2.rs.service.vo.OpenIDVo;
 import org.apache.oltu.oauth2.common.OAuth;
 import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.slf4j.Logger;
@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
  * @version 2015-10-14
  */
 @Controller
-@RequestMapping("/")
+@RequestMapping("user/")
 public class UserController {
     private static final Logger LOG = LoggerFactory.getLogger(UserController.class);
 
@@ -33,9 +33,9 @@ public class UserController {
      * @throws Exception
      */
     @RequiresRoles("User")
-    @RequestMapping("username")
+    @RequestMapping("openid")
     @ResponseBody
-    public UserNameVo username(HttpServletRequest request, HttpServletResponse response) throws Exception {
+    public OpenIDVo username(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
         final String clientId = (String) request.getAttribute(OAuth.OAUTH_CLIENT_ID);
         LOG.debug("Current clientId: {}", clientId);
@@ -43,6 +43,6 @@ public class UserController {
         final String username = request.getUserPrincipal().getName();
         LOG.debug("Current username: {}", username);
 
-        return new UserNameVo(clientId, username);
+        return new OpenIDVo(clientId, username);
     }
 }

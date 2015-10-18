@@ -31,14 +31,7 @@
 
 
 
-    <bean id="authenticationIdGenerator" class="com.power4j.oauth2.support.DefaultAuthenticationIdGeneratorImpl"/>
 
-
-    <bean id="oAuthIssuer" class="org.apache.oltu.oauth2.as.issuer.OAuthIssuerImpl">
-        <constructor-arg>
-            <bean class="org.apache.oltu.oauth2.as.issuer.MD5Generator"/>
-        </constructor-arg>
-    </bean>
 
     <!--more bean configuration in here-->
 

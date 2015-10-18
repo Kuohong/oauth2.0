@@ -1,8 +1,8 @@
 package com.power4j.oauth2.validator;
 
 
-import com.power4j.oauth2.rs.service.OauthService;
-import com.power4j.oauth2.utils.BeanProvider;
+import com.power4j.framework.context.util.BeanProvider;
+import com.power4j.oauth2.service.OauthService;
 import org.apache.oltu.oauth2.as.request.OAuthRequest;
 import org.apache.oltu.oauth2.common.error.OAuthError;
 import org.apache.oltu.oauth2.common.exception.OAuthSystemException;
@@ -96,4 +96,28 @@ public abstract class AbstractClientDetailsValidator {
 
 
     protected abstract OAuthResponse validateSelf(ClientDetails clientDetails) throws OAuthSystemException;
+
+    public OauthService getOauthService() {
+        return oauthService;
+    }
+
+    public void setOauthService(OauthService oauthService) {
+        this.oauthService = oauthService;
+    }
+
+    public OAuthRequest getOauthRequest() {
+        return oauthRequest;
+    }
+
+    public void setOauthRequest(OAuthRequest oauthRequest) {
+        this.oauthRequest = oauthRequest;
+    }
+
+    public ClientDetails getClientDetails() {
+        return clientDetails;
+    }
+
+    public void setClientDetails(ClientDetails clientDetails) {
+        this.clientDetails = clientDetails;
+    }
 }

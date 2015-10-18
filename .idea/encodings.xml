@@ -22,7 +22,7 @@
     <file url="file://$PROJECT_DIR$/oauth-server/src/main/java/com/power4j/oauth2/authorize/handler/CodeAuthorizeHandler.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/oauth-server/src/main/java/com/power4j/oauth2/authorize/handler/OAuthHandler.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/oauth-server/src/main/java/com/power4j/oauth2/authorize/handler/TokenAuthorizeHandler.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/oauth-server/src/main/java/com/power4j/oauth2/rs/service/OauthService.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/oauth-server/src/main/java/com/power4j/oauth2/service/OauthService.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/oauth-server/src/main/java/com/power4j/oauth2/token/handler/AbstractOAuthTokenHandler.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/oauth-server/src/main/java/com/power4j/oauth2/token/handler/AuthorizationCodeTokenHandler.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/oauth-server/src/main/java/com/power4j/oauth2/token/handler/ClientCredentialsTokenHandler.java" charset="GBK" />
@@ -30,7 +30,6 @@
     <file url="file://$PROJECT_DIR$/oauth-server/src/main/java/com/power4j/oauth2/token/handler/OAuthTokenHandler.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/oauth-server/src/main/java/com/power4j/oauth2/token/handler/PasswordTokenHandler.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/oauth-server/src/main/java/com/power4j/oauth2/token/handler/RefreshTokenHandler.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/oauth-server/src/main/java/com/power4j/oauth2/utils/BeanProvider.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/oauth-server/src/main/java/com/power4j/oauth2/validator/AbstractClientDetailsValidator.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/oauth-server/src/main/java/com/power4j/oauth2/validator/AbstractOauthTokenValidator.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/oauth-server/src/main/java/com/power4j/oauth2/validator/AuthorizationCodeClientDetailsValidator.java" charset="GBK" />
@@ -47,5 +46,7 @@
     <file url="file://$PROJECT_DIR$/oauth-server/src/main/webapp/resources" charset="GBK" />
     <file url="file://$PROJECT_DIR$/resource" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/resource/src/main/resources/META-INF/config/spring/spring-propertyFileConfigurer.xml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/resource/src/main/webapp/WEB-INF" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/resource/src/main/webapp/loading.jsp" charset="GBK" />
   </component>
 </project>

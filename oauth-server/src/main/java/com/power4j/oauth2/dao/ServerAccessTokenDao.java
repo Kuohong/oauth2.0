@@ -11,10 +11,13 @@ import com.power4j.oauth2.common.pojo.token.ServerAccessToken;
  */
 public interface ServerAccessTokenDao {
     ServerAccessToken findAccessToken(@Param("clientId")String clientId, @Param("username")String username, @Param("authenticationId")String authenticationId);
+    ServerAccessToken findAccessTokenByClientIdAndUserUUID(@Param("clientId")String clientId, @Param("username")String username);
 
     int deleteAccessToken(ServerAccessToken accessToken);
 
     int saveAccessToken(ServerAccessToken accessToken);
 
     ServerAccessToken findAccessTokenByRefreshToken(@Param("refreshToken")String refreshToken, @Param("clientId")String clientId);
+
+    ServerAccessToken selectAccessTokenByTokenId(@Param("tokenId") String tokenId);
 }

@@ -78,7 +78,7 @@ public class TokenAuthorizeHandler extends AbstractAuthorizeHandler {
 
         final OAuthResponse oAuthResponse = OAuthASResponse.errorResponse(HttpServletResponse.SC_FOUND)
                 .setError(OAuthError.ResourceResponse.EXPIRED_TOKEN)
-                .setErrorDescription("access_token '" + accessToken.tokenId() + "' expired")
+                .setErrorDescription("access_token '" + accessToken.getTokenId() + "' expired")
                 .setErrorUri(clientDetails.getRedirectUri())
                 .buildJSONMessage();
 

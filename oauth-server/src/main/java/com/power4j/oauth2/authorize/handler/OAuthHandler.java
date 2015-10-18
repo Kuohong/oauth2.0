@@ -1,14 +1,14 @@
 package com.power4j.oauth2.authorize.handler;
 
 
+import com.power4j.framework.context.util.BeanProvider;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.oltu.oauth2.as.response.OAuthASResponse;
 import org.apache.oltu.oauth2.common.exception.OAuthSystemException;
 import org.apache.oltu.oauth2.common.message.OAuthResponse;
 import com.power4j.oauth2.common.pojo.ClientDetails;
 import com.power4j.oauth2.common.pojo.token.ServerAccessToken;
-import com.power4j.oauth2.rs.service.OauthService;
-import com.power4j.oauth2.utils.BeanProvider;
+import com.power4j.oauth2.service.OauthService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -53,7 +53,7 @@ public abstract class OAuthHandler {
         final OAuthASResponse.OAuthTokenResponseBuilder builder = OAuthASResponse
                 .tokenResponse(HttpServletResponse.SC_OK)
                 .location(clientDetails.getRedirectUri())
-                .setAccessToken(accessToken.tokenId())
+                .setAccessToken(accessToken.getTokenId())
                 .setExpiresIn(String.valueOf(accessToken.currentTokenExpiredSeconds()))
                 .setTokenType(accessToken.tokenType());
 
@@ -68,4 +68,19 @@ public abstract class OAuthHandler {
 
     protected abstract String clientId();
 
+    public OauthService getOauthService() {
+        return oauthService;
+    }
+
+    public void setOauthService(OauthService oauthService) {
+        this.oauthService = oauthService;
+    }
+
+    public ClientDetails getClientDetails() {
+        return clientDetails;
+    }
+
+    public void setClientDetails(ClientDetails clientDetails) {
+        this.clientDetails = clientDetails;
+    }
 }

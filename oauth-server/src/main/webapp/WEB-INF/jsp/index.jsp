@@ -35,7 +35,7 @@ Welcome: <shiro:principal/>
         <shiro:hasRole name="User">
             <li><a href="#">User Action</a></li>
         </shiro:hasRole>
-        <shiro:hasPermission name="user:list">
+        <shiro:hasPermission name="user:manage">
             <li><a href="user/list">User List</a></li>
         </shiro:hasPermission>
         <shiro:hasPermission name="user:create">

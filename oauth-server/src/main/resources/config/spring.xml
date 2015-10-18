@@ -11,7 +11,7 @@
 
     <!--annotation configuration -->
     <context:annotation-config/>
-    <context:component-scan base-package="com.power4j.oauth2"/>
+    <context:component-scan base-package="com.power4j"/>
     <import resource="classpath*:config/spring/spring-logConfiguration.xml"/>
     <import resource="classpath*:config/spring/spring-propertyFileConfigurer.xml"/>
     <import resource="classpath*:config/spring/spring-mybatis.xml"/>

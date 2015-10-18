@@ -21,7 +21,7 @@ public  class ServerAccessToken extends AccessToken {
     protected static long THOUSAND = 1000l;
 
 
-    protected String username;
+    protected String openid;
 
     protected String clientId;
 
@@ -95,21 +95,18 @@ public  class ServerAccessToken extends AccessToken {
         return this;
     }
 
-    public String tokenId() {
-        return tokenId;
-    }
 
     public ServerAccessToken tokenId(String tokenId) {
         this.tokenId = tokenId;
         return this;
     }
 
-    public String username() {
-        return username;
+    public String getOpenid() {
+        return openid;
     }
 
-    public ServerAccessToken username(String username) {
-        this.username = username;
+    public ServerAccessToken openId(String openid) {
+        this.openid = openid;
         return this;
     }
 
@@ -171,7 +168,7 @@ public  class ServerAccessToken extends AccessToken {
     @Override public String toString() {
         return "{" +
             "tokenId='" + tokenId + '\'' +
-            ", username='" + username + '\'' +
+            ", openid='" + openid + '\'' +
             ", clientId='" + clientId + '\'' +
             ", authenticationId='" + authenticationId + '\'' +
             ", refreshToken='" + refreshToken + '\'' +
@@ -181,12 +178,10 @@ public  class ServerAccessToken extends AccessToken {
             '}';
     }
 
-    public String getUsername() {
-        return username;
-    }
 
-    public void setUsername(String username) {
-        this.username = username;
+
+    public void setOpenid(String openid) {
+        this.openid = openid;
     }
 
     public String getClientId() {
@@ -259,7 +254,7 @@ public  class ServerAccessToken extends AccessToken {
         serverAccessToken.setRefreshTokenExpiredSeconds(refreshTokenExpiredSeconds);
         serverAccessToken.setTokenId(tokenId);
         serverAccessToken.setTokenExpiredSeconds(tokenExpiredSeconds);
-        serverAccessToken.setUsername(username);
+        serverAccessToken.setOpenid(openid);
         serverAccessToken.setCreateTime(createTime);
         return serverAccessToken;
     }

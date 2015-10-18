@@ -23,7 +23,7 @@
         <Console name="console" target="SYSTEM_OUT">
             <PatternLayout pattern="%d %p [%c] - &lt;%m&gt;%n"/>
         </Console>
-        <RollingFile name="file" fileName="oauth.log" append="true"
+        <RollingFile name="file" fileName="${CATALINA_HOME}/oauth.log" append="true"
                      filePattern="cas-%d{yyyy-MM-dd-HH}-%i.log">
             <PatternLayout pattern="%d %p [%c] - %m%n"/>
             <Policies>
@@ -52,7 +52,7 @@
         </RollingFile>
     </Appenders>
     <Loggers>
-        <Logger name="org.power4j" level="info" additivity="false">
+        <Logger name="com.power4j" level="info" additivity="false">
             <AppenderRef ref="console"/>
             <AppenderRef ref="file"/>
         </Logger>
@@ -74,6 +74,7 @@
         </logger>
         <Root level="DEBUG">
             <AppenderRef ref="console"/>
+            <AppenderRef ref="file"/>
         </Root>
     </Loggers>
 </Configuration>

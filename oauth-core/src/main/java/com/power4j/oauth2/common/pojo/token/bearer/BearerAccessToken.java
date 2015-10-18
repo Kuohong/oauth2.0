@@ -31,6 +31,12 @@ public class BearerAccessToken extends ServerAccessToken {
      * @return New ServerAccessToken instance
      */
     public ServerAccessToken cloneMe() {
-        return new BearerAccessToken().username(username).clientId(clientId).tokenType(tokenType);
+        BearerAccessToken token = new BearerAccessToken();
+        token.setOpenid(openid);
+        token.setClientId(clientId);
+        token.setCreateTime(createTime);
+        token.setRefreshToken(refreshToken);
+        token.setTokenType(tokenType);
+        return token;
     }
 }

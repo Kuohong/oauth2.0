@@ -4,48 +4,48 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.power4j.oauth2.dao.PermissionDao">
         <resultMap id="permission" type="com.power4j.oauth2.common.pojo.Permission">
-                <result column="id" property="id" jdbcType="INTEGER" />
-                <result column="uuid" property="uuid" jdbcType="VARCHAR" />
-                <result column="name" property="name" jdbcType="VARCHAR"/>
-                <result column="key" property="key" jdbcType="VARCHAR"/>
-                <result column="parentUUID" property="parent_uuid" jdbcType="VARCHAR"/>
-                <result column="order" property="order" jdbcType="INTEGER"/>
-                <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+                <result column="id_" property="id" jdbcType="INTEGER" />
+                <result column="uuid_" property="uuid" jdbcType="VARCHAR" />
+                <result column="name_" property="name" jdbcType="VARCHAR"/>
+                <result column="key_" property="key" jdbcType="VARCHAR"/>
+                <result column="parent_uuid_" property="parentUUID" jdbcType="VARCHAR"/>
+                <result column="order_" property="order" jdbcType="INTEGER"/>
+                <result column="create_time_" property="createTime" jdbcType="TIMESTAMP" />
         </resultMap>
         <sql id="Base_Column_List" >
-                id, uuid,name,  key, parent_uuid, order, create_time
+                id_, uuid_, name_,  key_, parent_uuid_, order_, create_time_
         </sql>
         <insert id="savePermission" parameterType="com.power4j.oauth2.common.pojo.Permission">
-           insert into sys_permission (uuid, name, key, parentUUID, order, create_time)
-           values (#{uuid}, #{name}, #{key}, #{parent_uuid}, #{order},  #{createTime})
+           insert into sys_permission (uuid_, name_, key_, parent_uuid_, order_, create_time_)
+           values (#{uuid}, #{name}, #{key}, #{parentUUID}, #{order},  #{createTime})
         </insert>
         <select id="selectPermissionByRoleUUID"  resultMap="permission">
           SELECT
-          p.id, p.uuid, p.name,  p.key, p.parent_uuid, p.order, p.create_time
-          FROM sys_permission p right JOIN sys_role_permission rp on rp.permission_uuid = p.uuid
-          WHERE rp.role_uuid = #{roleUUID}
+          p.id_, p.uuid_, p.name_,  p.key_, p.parent_uuid_, p.order_, p.create_time_
+          FROM sys_permission p right JOIN sys_role_permission rp on rp.permission_uuid_ = p.uuid_
+          WHERE rp.role_uuid_ = #{roleUUID}
         </select>
     <select id="selectPermissionKeyByRoleUUID"  resultType="STRING">
-        SELECT p.key
-          FROM sys_permission p right JOIN sys_role_permission rp on rp.permission_uuid = p.uuid
-          WHERE rp.role_uuid = #{roleUUID}
+        SELECT p.key_
+          FROM sys_permission p right JOIN sys_role_permission rp on rp.permission_uuid_ = p.uuid_
+          WHERE rp.role_uuid_ = #{roleUUID}
     </select>
-        <select id="selectByUuId" resultMap="role">
+        <select id="selectByUuId" resultMap="permission">
             SELECT
             <include refid="Base_Column_List"/>
             FROM sys_user
-            WHERE uuid = #{uuid}
+            WHERE uuid_ = #{uuid}
         </select>
     <update id="updateUserStatus">
-        UPDATE sys_user SET status = #{status, typeHandler=com.power4j.oauth2.mybatis.handler.CommonStatusHandler}
-        where uuid = #{uuid}
+        UPDATE sys_user SET status_ = #{status, typeHandler=com.power4j.oauth2.mybatis.handler.CommonStatusHandler}
+        where uuid_ = #{uuid}
     </update>
 
     <insert id="insertUserRole">
-        INSERT INTO sys_user_role (user_uuid, role_uuid) values (#{userUUID}, #{roleUUID})
+        INSERT INTO sys_user_role (user_uuid_, role_uuid_) values (#{userUUID}, #{roleUUID})
     </insert>
     <delete id="deleteUserRole">
-        DELETE FROM sys_user_role WHERE user_uuid = #{uuid}
+        DELETE FROM sys_user_role WHERE user_uuid_ = #{uuid}
     </delete>
 
 </mapper>

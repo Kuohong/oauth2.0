@@ -45,8 +45,8 @@
     </bean>
     <!-- mybatis文件配置，扫描所有mapper文件 -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean"
-          p:dataSource-ref="dataSource" p:configLocation="classpath:config/spring/mybatis-config.xml"
-          p:mapperLocations="classpath:mapper/**/*.xml">
+          p:dataSource-ref="dataSource" p:configLocation="classpath:META-INF/config/spring/mybatis-config.xml"
+          p:mapperLocations="classpath:META-INF/mapper/**/*.xml">
         <property name="plugins">
             <array>
                 <bean class="com.github.pagehelper.PageHelper">
@@ -67,12 +67,12 @@
     </bean>
     <!-- spring与mybatis整合配置，扫描所有dao -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer"
-          p:basePackage="org.power4j.*.dao"
+          p:basePackage="com.power4j.oauth2.*.dao"
           p:sqlSessionFactoryBeanName="sqlSessionFactory" />
 
     <!--aop-->
     <aop:config>
-        <aop:advisor advice-ref="applicationAdvisor" pointcut="execution(* org.power4j.oauth2.service.*.*(..))"/>
+        <aop:advisor advice-ref="applicationAdvisor" pointcut="execution(* com.power4j.oauth2.rs.service.*.*(..))"/>
     </aop:config>
 
     <!--advisor-->

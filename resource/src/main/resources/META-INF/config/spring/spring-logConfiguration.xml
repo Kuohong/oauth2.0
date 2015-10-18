@@ -33,7 +33,7 @@
 
     <bean id="log4jInitialization" class="com.power4j.framework.util.LoggerContextInitializer"
           c:logConfigurationField="logConfiguration"
-          c:logConfigurationFile="${log4j.config.location:classpath:config/log4j2.xml}"
+          c:logConfigurationFile="${log4j.config.location:classpath:META-INF/config/log4j2.xml}"
           c:loggerContextPackageName="org.apache.logging.log4j.web"/>
     <!--<bean id="log4jInitialization" class="org.springframework.beans.factory.config.MethodInvokingFactoryBean"
           p:targetClass="org.apache.logging.log4j.web.Log4jServletContextListener" p:targetMethod="initLogging" p:arguments-ref="arguments"/>

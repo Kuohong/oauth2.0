@@ -4,7 +4,7 @@ import org.springframework.context.ApplicationContext;
 
 /**
  */
-public abstract class BeanProvider {
+public final  class BeanProvider {
 
     private static ApplicationContext applicationContext;
 
@@ -35,4 +35,11 @@ public abstract class BeanProvider {
         return (T) applicationContext.getBean(beanId);
     }
 
+    public static ApplicationContext getApplicationContext() {
+        return applicationContext;
+    }
+
+    public static void setApplicationContext(ApplicationContext applicationContext) {
+        BeanProvider.applicationContext = applicationContext;
+    }
 }
