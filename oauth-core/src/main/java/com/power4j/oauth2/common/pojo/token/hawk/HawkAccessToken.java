@@ -1,8 +1,8 @@
 package com.power4j.oauth2.common.pojo.token.hawk;
 
 
+import com.power4j.oauth2.common.constants.OAuthConstants;
 import org.apache.oltu.oauth2.common.exception.OAuthRuntimeException;
-import com.power4j.oauth2.common.constants.OauthConstants;
 import com.power4j.oauth2.common.pojo.ClientDetails;
 import com.power4j.oauth2.common.pojo.token.ServerAccessToken;
 import com.power4j.oauth2.common.util.HmacUtils;
@@ -17,14 +17,14 @@ import com.power4j.oauth2.common.util.HmacUtils;
 public class HawkAccessToken extends ServerAccessToken {
     public HawkAccessToken(ClientDetails client, HmacAlgorithm algo, String tokenKey, String macKey,
         long lifetime, long issuedAt) {
-        super(checkClient(client), OauthConstants.HAWK_TOKEN_TYPE, tokenKey, lifetime, issuedAt);
+        super(checkClient(client), OAuthConstants.HAWK_TOKEN_TYPE, tokenKey, lifetime, issuedAt);
         this.setExtraParameters(algo, macKey);
     }
 
     private void setExtraParameters(HmacAlgorithm algo, String macKey) {
         String theKey = macKey == null ? HmacUtils.generateKey(algo.getJavaName()) : macKey;
-        super.getParameters().put(OauthConstants.HAWK_TOKEN_KEY, theKey);
-        super.getParameters().put(OauthConstants.HAWK_TOKEN_ALGORITHM, algo.getOAuthName());
+        super.getParameters().put(OAuthConstants.HAWK_TOKEN_KEY, theKey);
+        super.getParameters().put(OAuthConstants.HAWK_TOKEN_ALGORITHM, algo.getOAuthName());
     }
 
     private static ClientDetails checkClient(ClientDetails c) {

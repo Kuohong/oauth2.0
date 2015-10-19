@@ -1,6 +1,6 @@
 package com.power4j.oauth2.common.util;
 
-import com.power4j.oauth2.common.constants.OauthConstants;
+import com.power4j.oauth2.common.constants.OAuthConstants;
 
 /**
  * ClassName: org.power4j.common.util.OauthUtils <br>
@@ -11,6 +11,6 @@ import com.power4j.oauth2.common.constants.OauthConstants;
 public class OauthUtils {
 
     public static long getIssuedAt() {
-        return System.currentTimeMillis() / OauthConstants.THOUSAND;
+        return System.currentTimeMillis() / OAuthConstants.THOUSAND;
     }
 }

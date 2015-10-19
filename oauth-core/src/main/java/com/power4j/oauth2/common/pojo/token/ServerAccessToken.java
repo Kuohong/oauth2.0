@@ -1,9 +1,10 @@
 package com.power4j.oauth2.common.pojo.token;
 
 
-import com.power4j.oauth2.common.constants.OauthConstants;
+import com.power4j.oauth2.common.constants.OAuthConstants;
 import com.power4j.oauth2.common.pojo.ClientDetails;
 import com.power4j.oauth2.common.util.OauthUtils;
+import com.power4j.oauth2.util.OAuthUtils;
 import org.apache.oltu.oauth2.common.exception.OAuthRuntimeException;
 
 import java.util.Date;
@@ -24,13 +25,15 @@ public  class ServerAccessToken extends AccessToken {
     protected String openid;
 
     protected String clientId;
+    private ClientDetails client;
 
     protected String authenticationId;
+    private String grantType;
 
 
-    protected int tokenExpiredSeconds = OauthConstants.ACCESS_TOKEN_VALIDITY_SECONDS;
+    protected int tokenExpiredSeconds = OAuthConstants.ACCESS_TOKEN_VALIDITY_SECONDS;
 
-    protected int refreshTokenExpiredSeconds = OauthConstants.REFRESH_TOKEN_VALIDITY_SECONDS;
+    protected int refreshTokenExpiredSeconds = OAuthConstants.REFRESH_TOKEN_VALIDITY_SECONDS;
     protected Date createTime;
 
 
@@ -59,15 +62,17 @@ public  class ServerAccessToken extends AccessToken {
     }
 
 
+
+
     public boolean isTokenExpired() {
         final long time = this.getIssuedAt();
-        return (System.currentTimeMillis() / THOUSAND - time) > OauthConstants.ACCESS_TOKEN_VALIDITY_SECONDS;
+        return (System.currentTimeMillis() / THOUSAND - time) > OAuthConstants.ACCESS_TOKEN_VALIDITY_SECONDS;
     }
 
 
     public boolean refreshTokenExpired() {
         final long time = this.getIssuedAt();
-        return (System.currentTimeMillis() / THOUSAND - time) > OauthConstants.REFRESH_TOKEN_VALIDITY_SECONDS;
+        return (System.currentTimeMillis() / THOUSAND - time) > OAuthConstants.REFRESH_TOKEN_VALIDITY_SECONDS;
     }
 
 
@@ -76,7 +81,7 @@ public  class ServerAccessToken extends AccessToken {
             return -1;
         }
         final long time = this.getIssuedAt();
-        return OauthConstants.ACCESS_TOKEN_VALIDITY_SECONDS - (System.currentTimeMillis()/THOUSAND -time);
+        return OAuthConstants.ACCESS_TOKEN_VALIDITY_SECONDS - (System.currentTimeMillis()/THOUSAND -time);
     }
 
     public ServerAccessToken updateByClientDetails(ClientDetails clientDetails) {
@@ -222,19 +227,19 @@ public  class ServerAccessToken extends AccessToken {
 
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
-        this.issuedAt = this.getCreateTime().getTime()/OauthConstants.THOUSAND;
+        this.issuedAt = this.getCreateTime().getTime()/ OAuthConstants.THOUSAND;
     }
 
     protected static ServerAccessToken validateTokenType(ServerAccessToken token,
         String expectedType) {
         if (!token.getTokenType().equals(expectedType)) {
-            throw new OAuthRuntimeException(OauthConstants.SERVER_ERROR);
+            throw new OAuthRuntimeException(OAuthConstants.SERVER_ERROR);
         }
         return token;
     }
 
     @Override public long getIssuedAt() {
-        return this.getCreateTime().getTime()/OauthConstants.THOUSAND;
+        return this.getCreateTime().getTime()/ OAuthConstants.THOUSAND;
     }
 
 
@@ -257,5 +262,21 @@ public  class ServerAccessToken extends AccessToken {
         serverAccessToken.setOpenid(openid);
         serverAccessToken.setCreateTime(createTime);
         return serverAccessToken;
+    }
+
+    public String getGrantType() {
+        return grantType;
+    }
+
+    public void setGrantType(String grantType) {
+        this.grantType = grantType;
+    }
+
+    public ClientDetails getClient() {
+        return client;
+    }
+
+    public void setClient(ClientDetails client) {
+        this.client = client;
     }
 }

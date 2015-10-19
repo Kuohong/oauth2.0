@@ -1,9 +1,11 @@
 package com.power4j.oauth2.common.pojo;
 
+import com.google.common.base.Splitter;
 import org.apache.oltu.oauth2.common.message.types.GrantType;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 /**
  * ClassName: org.power4j.common.pojo <br>
@@ -69,6 +71,7 @@ public class ClientDetails implements Serializable {
      * 创建时间
      */
     protected Date createTime;
+    public static Splitter ScopeSplitter = Splitter.on(",");
 
     public Date getCreateTime() {
         return createTime;
@@ -223,5 +226,9 @@ public class ClientDetails implements Serializable {
     }
     public boolean isSupportRefreshToken() {
         return this.grantTypes != null && this.grantTypes.contains(GrantType.REFRESH_TOKEN.toString());
+    }
+
+    public List<String> getRegisteredScopes(){
+        return ScopeSplitter.splitToList(this.getScope());
     }
 }

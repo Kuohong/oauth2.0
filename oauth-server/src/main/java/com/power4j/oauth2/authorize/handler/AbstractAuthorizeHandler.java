@@ -1,7 +1,7 @@
 package com.power4j.oauth2.authorize.handler;
 
 
-import com.power4j.oauth2.common.constants.OauthConstants;
+import com.power4j.oauth2.common.constants.OAuthConstants;
 import com.power4j.oauth2.common.web.util.WebUtils;
 import com.power4j.oauth2.validator.AbstractClientDetailsValidator;
 import com.power4j.oauth2.web.wapper.OAuthAuthxRequest;
@@ -83,7 +83,7 @@ public abstract class AbstractAuthorizeHandler extends OAuthHandler {
             //go to approval
             LOG.debug("Go to oauth_approval, clientId: '{}'", clientDetails().getClientId());
             final HttpServletRequest request = oauthRequest.request();
-            request.getRequestDispatcher(OauthConstants.OAUTH_APPROVAL_VIEW)
+            request.getRequestDispatcher(OAuthConstants.OAUTH_APPROVAL_VIEW)
                     .forward(request, response);
             return true;
         }
@@ -95,7 +95,7 @@ public abstract class AbstractAuthorizeHandler extends OAuthHandler {
         if (isPost() && !clientDetails().isTrusted()) {
             //submit approval
             final HttpServletRequest request = oauthRequest.request();
-            final String oauthApproval = request.getParameter(OauthConstants.REQUEST_USER_OAUTH_APPROVAL);
+            final String oauthApproval = request.getParameter(OAuthConstants.REQUEST_USER_OAUTH_APPROVAL);
             if (!"true".equalsIgnoreCase(oauthApproval)) {
                 //Deny action
                 LOG.debug("User '{}' deny access", SecurityUtils.getSubject().getPrincipal());
@@ -133,7 +133,7 @@ public abstract class AbstractAuthorizeHandler extends OAuthHandler {
             //go to login
             LOG.debug("Forward to Oauth login by client_id '{}'", oauthRequest.getClientId());
             final HttpServletRequest request = oauthRequest.request();
-            request.getRequestDispatcher(OauthConstants.OAUTH_LOGIN_VIEW)
+            request.getRequestDispatcher(OAuthConstants.OAUTH_LOGIN_VIEW)
                     .forward(request, response);
             return true;
         }
@@ -158,7 +158,7 @@ public abstract class AbstractAuthorizeHandler extends OAuthHandler {
 
                 final HttpServletRequest request = oauthRequest.request();
                 request.setAttribute("oauth_login_error", true);
-                request.getRequestDispatcher(OauthConstants.OAUTH_LOGIN_VIEW)
+                request.getRequestDispatcher(OAuthConstants.OAUTH_LOGIN_VIEW)
                         .forward(request, response);
                 return true;
             }
@@ -168,8 +168,8 @@ public abstract class AbstractAuthorizeHandler extends OAuthHandler {
 
     private UsernamePasswordToken createUsernamePasswordToken() {
         final HttpServletRequest request = oauthRequest.request();
-        final String username = request.getParameter(OauthConstants.REQUEST_USERNAME);
-        final String password = request.getParameter(OauthConstants.REQUEST_PASSWORD);
+        final String username = request.getParameter(OAuthConstants.REQUEST_USERNAME);
+        final String password = request.getParameter(OAuthConstants.REQUEST_PASSWORD);
         return new UsernamePasswordToken(username, password);
     }
 
