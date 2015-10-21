@@ -10,7 +10,7 @@ public class OauthCode extends AbstractDomain {
 
     private String code;
 
-    private String username;
+    private String openid;
 
     private String clientId;
 
@@ -27,12 +27,12 @@ public class OauthCode extends AbstractDomain {
         return this;
     }
 
-    public String username() {
-        return username;
+    public String getOpenid() {
+        return openid;
     }
 
-    public OauthCode username(String username) {
-        this.username = username;
+    public OauthCode openId(String openid) {
+        this.openid = openid;
         return this;
     }
 

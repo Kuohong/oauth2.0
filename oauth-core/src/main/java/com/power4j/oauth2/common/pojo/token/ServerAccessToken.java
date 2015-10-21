@@ -31,9 +31,9 @@ public  class ServerAccessToken extends AccessToken {
     private String grantType;
 
 
-    protected int tokenExpiredSeconds = OAuthConstants.ACCESS_TOKEN_VALIDITY_SECONDS;
+    protected long tokenExpiredSeconds = OAuthConstants.ACCESS_TOKEN_VALIDITY_SECONDS;
 
-    protected int refreshTokenExpiredSeconds = OAuthConstants.REFRESH_TOKEN_VALIDITY_SECONDS;
+    protected long refreshTokenExpiredSeconds = OAuthConstants.REFRESH_TOKEN_VALIDITY_SECONDS;
     protected Date createTime;
 
 
@@ -142,16 +142,16 @@ public  class ServerAccessToken extends AccessToken {
         return this;
     }
 
-    public int tokenExpiredSeconds() {
+    public long tokenExpiredSeconds() {
         return tokenExpiredSeconds;
     }
 
-    public ServerAccessToken tokenExpiredSeconds(int tokenExpiredSeconds) {
+    public ServerAccessToken tokenExpiredSeconds(long tokenExpiredSeconds) {
         this.tokenExpiredSeconds = tokenExpiredSeconds;
         return this;
     }
 
-    public int refreshTokenExpiredSeconds() {
+    public long refreshTokenExpiredSeconds() {
         return refreshTokenExpiredSeconds;
     }
 
@@ -209,15 +209,15 @@ public  class ServerAccessToken extends AccessToken {
         return tokenExpiredSeconds;
     }
 
-    public void setTokenExpiredSeconds(int tokenExpiredSeconds) {
+    public void setTokenExpiredSeconds(long tokenExpiredSeconds) {
         this.tokenExpiredSeconds = tokenExpiredSeconds;
     }
 
-    public int getRefreshTokenExpiredSeconds() {
+    public long getRefreshTokenExpiredSeconds() {
         return refreshTokenExpiredSeconds;
     }
 
-    public void setRefreshTokenExpiredSeconds(int refreshTokenExpiredSeconds) {
+    public void setRefreshTokenExpiredSeconds(long refreshTokenExpiredSeconds) {
         this.refreshTokenExpiredSeconds = refreshTokenExpiredSeconds;
     }
 

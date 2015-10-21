@@ -6,15 +6,15 @@
     <resultMap id="oauthCode" type="com.power4j.oauth2.common.pojo.OauthCode">
         <result column="client_id" property="clientId" jdbcType="VARCHAR" />
         <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
-        <result column="username" property="username" jdbcType="VARCHAR" />
+        <result column="openid" property="openid" jdbcType="VARCHAR" />
         <result column="code" property="code" jdbcType="VARCHAR"/>
     </resultMap>
     <sql id="Base_Column_List" >
-        client_id,  code, username, create_time,
+        client_id,  code, openid, create_time
     </sql>
     <insert id="saveOauthCode" parameterType="com.power4j.oauth2.common.pojo.OauthCode">
-        insert into oauth_code (client_id, code, username, create_time)
-        values (#{clientId}, #{code}, #{username}, #{create_time})
+        insert into oauth_code (client_id, code, openid, create_time)
+        values (#{clientId}, #{code}, #{openid}, #{createTime})
     </insert>
     <select id="findOauthCode"  resultMap="oauthCode">
         SELECT
@@ -26,11 +26,11 @@
         SELECT
         <include refid="Base_Column_List"/>
         FROM oauth_code
-        WHERE username = #{username} AND client_id = #{clientId}
+        WHERE openid = #{openid} AND client_id = #{clientId}
     </select>
     <delete id="deleteOauthCode">
         DELETE FROM oauth_code
-        where  code = #{oauthCode.code} and client_id = #{oauthCode.clientId} and username = #{oauthCode.username}
+        where  code = #{code} and client_id = #{clientId} and openid = #{openid}
     </delete>
 
 </mapper>

@@ -1,6 +1,7 @@
 package com.power4j.oauth2.authorize.handler;
 
 
+import com.power4j.oauth2.common.constants.OAuthConstants;
 import com.power4j.oauth2.common.web.util.WebUtils;
 import com.power4j.oauth2.web.wapper.OAuthAuthxRequest;
 import org.apache.oltu.oauth2.as.response.OAuthASResponse;
@@ -44,11 +45,11 @@ public class CodeAuthorizeHandler extends AbstractAuthorizeHandler {
 
         final OAuthResponse oAuthResponse = OAuthASResponse
                 .authorizationResponse(oauthRequest.request(), HttpServletResponse.SC_OK)
-                .location(clientDetails.getRedirectUri())
+                .location(oauthRequest.getRedirectURI())
                 .setCode(authCode)
                 .buildQueryMessage();
+        oAuthResponse.setBody(new StringBuffer("{").append("code:").append(authCode).append("}").toString());
         LOG.debug(" 'code' response: {}", oAuthResponse);
-
         WebUtils.writeOAuthQueryResponse(response, oAuthResponse);
     }
 

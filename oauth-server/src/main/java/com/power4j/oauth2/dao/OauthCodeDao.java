@@ -15,7 +15,7 @@ public interface OauthCodeDao {
 
     OauthCode findOauthCode(@Param("code") String code, @Param("clientId")String clientId);
 
-    OauthCode findOauthCodeByUsernameClientId(@Param("username") String username, @Param("clientId") String clientId);
+    OauthCode findOauthCodeByUsernameClientId(@Param("openid") String openid, @Param("clientId") String clientId);
 
     int deleteOauthCode(OauthCode oauthCode);
 }

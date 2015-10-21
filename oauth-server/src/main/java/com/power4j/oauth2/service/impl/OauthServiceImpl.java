@@ -80,7 +80,7 @@ public class OauthServiceImpl implements OauthService {
     @Override public OauthCode saveAuthorizationCode(String authCode, ClientDetails clientDetails) {
         final String username = currentUsername();
         OauthCode oauthCode = new OauthCode()
-            .code(authCode).username(username)
+            .code(authCode).openId(username)
             .clientId(clientDetails.getClientId());
         oauthCodeDao.saveOauthCode(oauthCode);
         return oauthCode;

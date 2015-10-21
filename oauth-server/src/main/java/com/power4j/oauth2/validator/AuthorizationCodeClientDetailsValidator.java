@@ -12,6 +12,7 @@
 package com.power4j.oauth2.validator;
 
 
+import com.power4j.oauth2.common.constants.OAuthConstants;
 import org.apache.oltu.oauth2.common.error.OAuthError;
 import org.apache.oltu.oauth2.common.exception.OAuthSystemException;
 import org.apache.oltu.oauth2.common.message.OAuthResponse;
@@ -59,7 +60,9 @@ public class AuthorizationCodeClientDetailsValidator extends AbstractOauthTokenV
 
         //validate redirect_uri
         final String redirectURI = oauthRequest.getRedirectURI();
-        if (redirectURI == null || !redirectURI.equals(clientDetails.getRedirectUri())) {
+        boolean validate = redirectURI == null || !redirectURI.equals(clientDetails.getRedirectUri()) || redirectURI.equals(
+            OAuthConstants.OOB_RESPONSE);
+        if (!validate) {
             LOG.debug("Invalid redirect_uri '{}', client_id = '{}'", redirectURI, clientDetails.getClientId());
             return invalidRedirectUriResponse();
         }

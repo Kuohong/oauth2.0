@@ -15,9 +15,9 @@
           <element id="library" level="project" name="Maven: org.json:json:20140107" />
           <element id="library" level="project" name="Maven: commons-codec:commons-codec:1.9" />
           <element id="library" level="project" name="Maven: org.apache.commons:commons-lang3:3.3.2" />
+          <element id="library" level="project" name="Maven: com.google.guava:guava:18.0" />
           <element id="library" level="project" name="Maven: org.apache.shiro:shiro-web:1.2.4" />
           <element id="library" level="project" name="Maven: org.reflections:reflections:0.9.10" />
-          <element id="library" level="project" name="Maven: com.google.guava:guava:15.0" />
           <element id="library" level="project" name="Maven: org.javassist:javassist:3.19.0-GA" />
           <element id="library" level="project" name="Maven: com.google.code.findbugs:annotations:2.0.1" />
           <element id="archive" name="oauth-resource-core-1.0.0-SNAPSHOT.jar">
