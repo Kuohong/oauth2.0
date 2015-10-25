@@ -1,14 +1,15 @@
 package com.power4j.oauth2.web.controller;
 
+import com.power4j.framework.context.util.BeanProvider;
+import com.power4j.oauth2.authorize.handler.AbstractAuthorizeHandler;
 import com.power4j.oauth2.common.web.util.WebUtils;
+import com.power4j.oauth2.provider.HandlerProvider;
 import com.power4j.oauth2.web.wapper.OAuthAuthxRequest;
 import org.apache.oltu.oauth2.as.response.OAuthASResponse;
 import org.apache.oltu.oauth2.common.error.OAuthError;
 import org.apache.oltu.oauth2.common.exception.OAuthProblemException;
 import org.apache.oltu.oauth2.common.exception.OAuthSystemException;
 import org.apache.oltu.oauth2.common.message.OAuthResponse;
-import com.power4j.oauth2.authorize.handler.CodeAuthorizeHandler;
-import com.power4j.oauth2.authorize.handler.TokenAuthorizeHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -18,6 +19,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * ClassName: org.power4j.web.rs <br>
@@ -27,8 +30,17 @@ import java.io.IOException;
  */
 @Controller
 @RequestMapping("oauth2.0/")
-public class OauthAuthorizeService {
-    private static final Logger LOG = LoggerFactory.getLogger(OauthAuthorizeService.class);
+public class OauthAuthorizeController {
+    private static final Logger LOG = LoggerFactory.getLogger(OauthAuthorizeController.class);
+    private HandlerProvider handlerProvider = BeanProvider.getBean(HandlerProvider.class);
+
+    public HandlerProvider getHandlerProvider() {
+        return handlerProvider;
+    }
+
+    public void setHandlerProvider(HandlerProvider handlerProvider) {
+        this.handlerProvider = handlerProvider;
+    }
 
     /**
      * Must handle the grant_type as follow:
@@ -52,9 +64,21 @@ public class OauthAuthorizeService {
         throws OAuthSystemException, ServletException, IOException {
         try {
             OAuthAuthxRequest oauthRequest = new OAuthAuthxRequest(request);
-            if (oauthRequest.isCode()) {
+            AbstractAuthorizeHandler authorizeHandler = findGrantHandler(oauthRequest);
+            if(authorizeHandler!=null){
+                authorizeHandler.setOauthRequest(oauthRequest);
+                authorizeHandler.setResponse(response);
+                if (oauthRequest.isCode()){
+                    LOG.debug("Go to  response_type = 'code' handler: {}", authorizeHandler);
+                }else if (oauthRequest.isToken()){
+                    LOG.debug("Go to response_type = 'token' handler: {}", authorizeHandler);
+                }
+                authorizeHandler.handle();
+            }else {
+                unsupportResponseType(oauthRequest, response);
+            }
+           /* if (oauthRequest.isCode()) {
                 CodeAuthorizeHandler codeAuthorizeHandler = new CodeAuthorizeHandler(oauthRequest, response);
-                LOG.debug("Go to  response_type = 'code' handler: {}", codeAuthorizeHandler);
                 codeAuthorizeHandler.handle();
 
             } else if (oauthRequest.isToken()) {
@@ -64,7 +88,7 @@ public class OauthAuthorizeService {
 
             } else {
                 unsupportResponseType(oauthRequest, response);
-            }
+            }*/
         } catch (OAuthProblemException e) {
             //exception
           OAuthResponse oAuthResponse = OAuthASResponse
@@ -87,7 +111,23 @@ public class OauthAuthorizeService {
         WebUtils.writeOAuthJsonResponse(response, oAuthResponse);
     }
 
+    /**
+     * Find the matching grant handler
+     */
+    protected AbstractAuthorizeHandler findGrantHandler(OAuthAuthxRequest oAuthAuthxRequest) {
+        List<AbstractAuthorizeHandler> authorizeHandlers = handlerProvider.getAuthorizeHandlers();
+        String grantType =oAuthAuthxRequest.getResponseType();
 
+        if (grantType != null) {
+            for (AbstractAuthorizeHandler handler : authorizeHandlers) {
+                if (handler.getSupportedGrantTypes().contains(grantType)) {
+                    return handler;
+                }
+            }
+        }
+
+        return null;
+    }
 
 
 }

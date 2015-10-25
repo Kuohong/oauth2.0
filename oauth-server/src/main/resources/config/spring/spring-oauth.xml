@@ -47,7 +47,54 @@
             <bean class="org.apache.oltu.oauth2.as.issuer.MD5Generator"/>
         </constructor-arg>
     </bean>-->
+    <bean id="oauthService" class="com.power4j.oauth2.service.impl.OauthServiceImpl"/>
+    <bean id="oAuthHandler" class="com.power4j.oauth2.authorize.handler.OAuthHandler" abstract="true">
+        <property name="oauthService" ref="oauthService"></property>
+    </bean>
 
     <!--more bean configuration in here-->
+    <bean id="codeAuthorizeHandler" class="com.power4j.oauth2.authorize.handler.CodeAuthorizeHandler" parent="oAuthHandler"/>
+    <bean id="tokenAuthorizeHandler" class="com.power4j.oauth2.authorize.handler.TokenAuthorizeHandler" parent="oAuthHandler"/>
 
+    <bean id="authorizationCodeTokenHandler" class="com.power4j.oauth2.token.handler.AuthorizationCodeTokenHandler" parent="oAuthHandler"/>
+    <bean id="clientCredentialsTokenHandler" class="com.power4j.oauth2.token.handler.ClientCredentialsTokenHandler" parent="oAuthHandler"/>
+    <bean id="passwordTokenHandler" class="com.power4j.oauth2.token.handler.PasswordTokenHandler" parent="oAuthHandler"/>
+    <bean id="refreshTokenHandler" class="com.power4j.oauth2.token.handler.RefreshTokenHandler" parent="oAuthHandler"/>
+
+    <!--<bean id="oauthAuthorizeController" class="com.power4j.oauth2.web.controller.OauthAuthorizeController">
+        <property name="handlers">
+            <list>
+                <ref bean="codeAuthorizeHandler"/>
+                <ref bean="tokenAuthorizeHandler"/>
+            </list>
+        </property>
+    </bean>-->
+    <bean id="dataProvider" class="com.power4j.oauth2.provider.HandlerProvider">
+        <property name="authorizeHandlers">
+            <array>
+                <ref bean="codeAuthorizeHandler"/>
+                <ref bean="tokenAuthorizeHandler"/>
+            </array>
+        </property>
+        <property name="oAuthTokenHandlers">
+            <array>
+                <ref bean="authorizationCodeTokenHandler"/>
+                <ref bean="clientCredentialsTokenHandler"/>
+                <ref bean="passwordTokenHandler"/>
+                <ref bean="refreshTokenHandler"/>
+            </array>
+        </property>
+
+    </bean>
+
+    <!--<bean id="oauthTokenController" class="com.power4j.oauth2.web.controller.OauthTokenController">
+        <property name="handlers">
+            <list>
+                <ref bean="authorizationCodeTokenHandler"/>
+                <ref bean="clientCredentialsTokenHandler"/>
+                <ref bean="passwordTokenHandler"/>
+                <ref bean="refreshTokenHandler"/>
+            </list>
+        </property>
+    </bean>-->
 </beans>

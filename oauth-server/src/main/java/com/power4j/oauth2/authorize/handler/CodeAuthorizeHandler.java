@@ -15,6 +15,8 @@ import org.slf4j.LoggerFactory;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -25,7 +27,9 @@ import java.io.IOException;
 public class CodeAuthorizeHandler extends AbstractAuthorizeHandler {
 
     private static final Logger LOG = LoggerFactory.getLogger(CodeAuthorizeHandler.class);
-
+    public CodeAuthorizeHandler(){
+        super();
+    }
 
     public CodeAuthorizeHandler(OAuthAuthxRequest oauthRequest, HttpServletResponse response) {
         super(oauthRequest, response);
@@ -54,4 +58,9 @@ public class CodeAuthorizeHandler extends AbstractAuthorizeHandler {
     }
 
 
+    @Override public List<String> getSupportedGrantTypes() {
+        List<String> supportedGrantTypes = new ArrayList<>();
+        supportedGrantTypes.add("code");
+        return supportedGrantTypes;
+    }
 }

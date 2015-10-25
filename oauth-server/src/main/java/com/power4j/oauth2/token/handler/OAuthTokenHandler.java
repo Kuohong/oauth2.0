@@ -17,6 +17,7 @@ import org.apache.oltu.oauth2.common.exception.OAuthSystemException;
 import com.power4j.oauth2.web.wapper.OAuthTokenxRequest;
 
 import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 
 /**
  * 2015/7/3
@@ -32,4 +33,5 @@ public interface OAuthTokenHandler {
     void handle(OAuthTokenxRequest tokenRequest, HttpServletResponse response) throws OAuthProblemException, OAuthSystemException;
 
 
+    List<String> getSupportedGrantTypes();
 }

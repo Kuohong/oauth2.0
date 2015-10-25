@@ -24,6 +24,9 @@ import com.power4j.oauth2.web.wapper.OAuthTokenxRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * grant_type=password
  *
@@ -64,5 +67,11 @@ public class PasswordTokenHandler extends AbstractOAuthTokenHandler {
         LOG.debug("'password' response: {}", tokenResponse);
         WebUtils.writeOAuthJsonResponse(response, tokenResponse);
 
+    }
+
+    @Override public List<String> getSupportedGrantTypes() {
+        List<String> supportedGrantTypes = new ArrayList<>();
+        supportedGrantTypes.add("password");
+        return supportedGrantTypes;
     }
 }

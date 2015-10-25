@@ -13,6 +13,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 
 /**
  *
@@ -83,4 +84,7 @@ public abstract class OAuthHandler {
     public void setClientDetails(ClientDetails clientDetails) {
         this.clientDetails = clientDetails;
     }
+
+    public abstract List<String> getSupportedGrantTypes();
+
 }

@@ -24,6 +24,9 @@ import com.power4j.oauth2.web.wapper.OAuthTokenxRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
 
  * grant_type=client_credentials
@@ -53,8 +56,8 @@ public class ClientCredentialsTokenHandler extends AbstractOAuthTokenHandler {
     @Override
     public void handleAfterValidation() throws OAuthProblemException, OAuthSystemException {
 
-        ServerAccessToken accessToken = oauthService.retrieveClientCredentialsAccessToken(clientDetails(),
-                tokenRequest.getScopes());
+        ServerAccessToken accessToken = oauthService.retrieveClientCredentialsAccessToken(
+            clientDetails(), tokenRequest.getScopes());
         final OAuthResponse tokenResponse = createTokenResponse(accessToken, false);
 
         LOG.debug("'client_credentials' response: {}", tokenResponse);
@@ -66,6 +69,12 @@ public class ClientCredentialsTokenHandler extends AbstractOAuthTokenHandler {
     @Override
     protected AbstractClientDetailsValidator getValidator() {
         return new ClientCredentialsClientDetailsValidator(tokenRequest);
+    }
+
+    @Override public List<String> getSupportedGrantTypes() {
+        List<String> supportedGrantTypes = new ArrayList<>();
+        supportedGrantTypes.add("client_credentials");
+        return supportedGrantTypes;
     }
 
 }

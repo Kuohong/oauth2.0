@@ -16,6 +16,7 @@
     <import resource="classpath*:config/spring/spring-propertyFileConfigurer.xml"/>
     <import resource="classpath*:config/spring/spring-mybatis.xml"/>
     <import resource="classpath*:config/spring/spring-security.xml"/>
+    <import resource="classpath*:config/spring/spring-oauth.xml"/>
     <!-- property configuration -->
 
 

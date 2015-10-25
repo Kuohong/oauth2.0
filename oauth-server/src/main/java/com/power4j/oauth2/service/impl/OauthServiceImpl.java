@@ -27,7 +27,6 @@ import java.util.Set;
  *
  * @author Kuo Hong
  */
-@Service
 public class OauthServiceImpl implements OauthService {
     private Logger logger = LoggerFactory.getLogger(OauthServiceImpl.class);
     @Resource

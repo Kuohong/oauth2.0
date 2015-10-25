@@ -18,7 +18,7 @@ import java.util.Map;
  * @version 2015-10-11
  */
 public class WebUtils {
-    private WebUtils() {
+    protected WebUtils() {
     }
 
 
@@ -44,6 +44,9 @@ public class WebUtils {
             throw new IllegalStateException("Write OAuthResponse error", e);
         }
     }
+
+
+
 
 
     public static void writeOAuthQueryResponse(HttpServletResponse response, OAuthResponse oAuthResponse) {

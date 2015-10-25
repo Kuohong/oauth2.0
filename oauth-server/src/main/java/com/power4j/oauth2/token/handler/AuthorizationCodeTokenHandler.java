@@ -24,6 +24,9 @@ import com.power4j.oauth2.web.wapper.OAuthTokenxRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * grant_type=authorization_code
  *
@@ -32,6 +35,10 @@ import org.slf4j.LoggerFactory;
 public class AuthorizationCodeTokenHandler extends AbstractOAuthTokenHandler {
 
     private static final Logger LOG = LoggerFactory.getLogger(AuthorizationCodeTokenHandler.class);
+
+    public AuthorizationCodeTokenHandler(){
+        super();
+    }
 
     @Override
     public boolean support(OAuthTokenxRequest tokenRequest) throws OAuthProblemException {
@@ -72,4 +79,9 @@ public class AuthorizationCodeTokenHandler extends AbstractOAuthTokenHandler {
         return new AuthorizationCodeClientDetailsValidator(tokenRequest);
     }
 
+    @Override public List<String> getSupportedGrantTypes() {
+        List<String> supportedGrantTypes = new ArrayList<>();
+        supportedGrantTypes.add("code");
+        return supportedGrantTypes;
+    }
 }

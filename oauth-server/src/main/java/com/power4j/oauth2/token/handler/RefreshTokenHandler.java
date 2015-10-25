@@ -24,6 +24,9 @@ import com.power4j.oauth2.web.wapper.OAuthTokenxRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 2015/7/3
  * <p/>
@@ -65,5 +68,9 @@ public class RefreshTokenHandler extends AbstractOAuthTokenHandler {
     protected AbstractClientDetailsValidator getValidator() {
         return new RefreshTokenClientDetailsValidator(tokenRequest);
     }
-
+    @Override public List<String> getSupportedGrantTypes() {
+        List<String> supportedGrantTypes = new ArrayList<>();
+        supportedGrantTypes.add("refresh_token");
+        return supportedGrantTypes;
+    }
 }

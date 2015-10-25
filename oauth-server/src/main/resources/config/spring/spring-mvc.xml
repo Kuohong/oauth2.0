@@ -10,7 +10,23 @@
     <!--annotation configuration -->
     <context:annotation-config/>
     <context:component-scan base-package="com.power4j.oauth2.web.controller"/>
+    <bean id="dataProvider" class="com.power4j.oauth2.provider.HandlerProvider">
+        <property name="authorizeHandlers">
+            <array>
+                <ref bean="codeAuthorizeHandler"/>
+                <ref bean="tokenAuthorizeHandler"/>
+            </array>
+        </property>
+        <property name="oAuthTokenHandlers">
+            <array>
+                <ref bean="authorizationCodeTokenHandler"/>
+                <ref bean="clientCredentialsTokenHandler"/>
+                <ref bean="passwordTokenHandler"/>
+                <ref bean="refreshTokenHandler"/>
+            </array>
+        </property>
 
+    </bean>
     <mvc:annotation-driven>
         <!-- 处理responseBody 里面日期类型 -->
         <mvc:message-converters>

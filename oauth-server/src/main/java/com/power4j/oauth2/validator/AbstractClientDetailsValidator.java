@@ -4,6 +4,7 @@ package com.power4j.oauth2.validator;
 import com.power4j.framework.context.util.BeanProvider;
 import com.power4j.oauth2.service.OauthService;
 import org.apache.oltu.oauth2.as.request.OAuthRequest;
+import org.apache.oltu.oauth2.as.response.OAuthASResponse;
 import org.apache.oltu.oauth2.common.error.OAuthError;
 import org.apache.oltu.oauth2.common.exception.OAuthSystemException;
 import org.apache.oltu.oauth2.common.message.OAuthResponse;
@@ -44,7 +45,7 @@ public abstract class AbstractClientDetailsValidator {
 
 
     protected OAuthResponse invalidClientErrorResponse() throws OAuthSystemException {
-        return OAuthResponse.errorResponse(HttpServletResponse.SC_UNAUTHORIZED)
+        return OAuthASResponse.errorResponse(HttpServletResponse.SC_UNAUTHORIZED)
                 .setError(OAuthError.TokenResponse.INVALID_CLIENT)
                 .setErrorDescription("Invalid client_id '" + oauthRequest.getClientId() + "'")
                 .buildJSONMessage();

@@ -34,6 +34,9 @@ public abstract class AbstractOAuthTokenHandler extends OAuthHandler implements 
 
     protected OAuthTokenxRequest tokenRequest;
     protected HttpServletResponse response;
+    public AbstractOAuthTokenHandler(){
+        super();
+    }
 
     @Override
     public final void handle(OAuthTokenxRequest tokenRequest, HttpServletResponse response) throws OAuthProblemException, OAuthSystemException {
@@ -76,5 +79,19 @@ public abstract class AbstractOAuthTokenHandler extends OAuthHandler implements 
 
     protected abstract void handleAfterValidation() throws OAuthProblemException, OAuthSystemException;
 
+    public OAuthTokenxRequest getTokenRequest() {
+        return tokenRequest;
+    }
 
+    public void setTokenRequest(OAuthTokenxRequest tokenRequest) {
+        this.tokenRequest = tokenRequest;
+    }
+
+    public HttpServletResponse getResponse() {
+        return response;
+    }
+
+    public void setResponse(HttpServletResponse response) {
+        this.response = response;
+    }
 }

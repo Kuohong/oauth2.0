@@ -1,6 +1,7 @@
 package com.power4j.oauth2.web.wapper;
 
 import org.apache.oltu.oauth2.as.request.OAuthTokenRequest;
+import org.apache.oltu.oauth2.common.OAuth;
 import org.apache.oltu.oauth2.common.exception.OAuthProblemException;
 import org.apache.oltu.oauth2.common.exception.OAuthSystemException;
 
@@ -11,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
  * <p/>
  * Ext  OAuthTokenRequest
  *
- * @author Shengzhao Li
+ * @author Kuo Hong
  */
 public class OAuthTokenxRequest extends OAuthTokenRequest {
 
@@ -28,5 +29,9 @@ public class OAuthTokenxRequest extends OAuthTokenRequest {
 
     public HttpServletRequest request() {
         return this.request;
+    }
+
+    public String getResponseType() {
+        return getParam(OAuth.OAUTH_RESPONSE_TYPE);
     }
 }

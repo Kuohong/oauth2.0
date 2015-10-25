@@ -37,7 +37,9 @@ public abstract class AbstractAuthorizeHandler extends OAuthHandler {
 
     protected boolean userFirstLogged = false;
     protected boolean userFirstApproved = false;
-
+    public AbstractAuthorizeHandler(){
+        super();
+    }
 
     public AbstractAuthorizeHandler(OAuthAuthxRequest oauthRequest, HttpServletResponse response) {
         this.oauthRequest = oauthRequest;
@@ -213,4 +215,20 @@ public abstract class AbstractAuthorizeHandler extends OAuthHandler {
 
     //Handle custom response content
     protected abstract void handleResponse() throws OAuthSystemException, IOException;
+
+    public OAuthAuthxRequest getOauthRequest() {
+        return oauthRequest;
+    }
+
+    public void setOauthRequest(OAuthAuthxRequest oauthRequest) {
+        this.oauthRequest = oauthRequest;
+    }
+
+    public HttpServletResponse getResponse() {
+        return response;
+    }
+
+    public void setResponse(HttpServletResponse response) {
+        this.response = response;
+    }
 }

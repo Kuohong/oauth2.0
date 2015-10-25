@@ -16,6 +16,8 @@ import org.slf4j.LoggerFactory;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Handle response_type = 'token'
@@ -26,7 +28,9 @@ public class TokenAuthorizeHandler extends AbstractAuthorizeHandler {
 
     private static final Logger LOG = LoggerFactory.getLogger(TokenAuthorizeHandler.class);
 
-
+    public TokenAuthorizeHandler(){
+        super();
+    }
     public TokenAuthorizeHandler(OAuthAuthxRequest oauthRequest, HttpServletResponse response) {
         super(oauthRequest, response);
     }
@@ -92,5 +96,11 @@ public class TokenAuthorizeHandler extends AbstractAuthorizeHandler {
         } else {
             return userFirstApproved;
         }
+    }
+
+    @Override public List<String> getSupportedGrantTypes() {
+        List<String> supportedGrantTypes = new ArrayList<>();
+        supportedGrantTypes.add("token");
+        return supportedGrantTypes;
     }
 }
